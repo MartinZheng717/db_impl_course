@@ -209,6 +209,11 @@ void DefaultStorageStage::handle_event(StageEvent *event)
 
       // TODO: 返回结果，带不带换行符都可以
 
+      const DropTable &drop_table = sql->sstr.drop_table;
+      rc = handler_->drop_table(current_db, drop_table.relation_name);
+      snprintf(response, sizeof(response), "%s\n", rc == RC::SUCCESS ? "SUCCESS" : "FAILURE");
+
+
     }break;
 
     case SCF_CREATE_INDEX: {

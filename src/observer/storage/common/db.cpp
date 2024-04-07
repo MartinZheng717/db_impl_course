@@ -86,6 +86,27 @@ RC Db::drop_table(const char* table_name)
 
   //TODO 删除成功的话，从表list中将它删除
 
+  // 从表list(opened_tables_)中找出表指针
+  Table *table = find_table(table_name);
+  if (table == nullptr) {
+    LOG_ERROR("Failed to drop table %s, table does not exist.", table_name);
+    return RC::GENERIC_ERROR;
+  }
+
+  // 调用 table->destroy 函数，让表自己销毁资源
+  RC rc = table->destroy(path_.c_str());
+  if (rc != RC::SUCCESS) {
+    LOG_ERROR("Failed to drop table %s, table destruction failed.", table_name);
+    return rc;
+  }
+
+  // 删除成功的话，从表list中将它删除
+  opened_tables_.erase(table_name);
+  LOG_INFO("Table %s dropped successfully.", table_name);
+
+  return RC::SUCCESS;
+
+
   return RC::GENERIC_ERROR;
 }
 

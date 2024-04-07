@@ -143,6 +143,15 @@ RC DefaultHandler::drop_table(const char *dbname, const char *relation_name)
 
   //TODO 如果数据库不存在返回错误，如果存在调用db的drop_table接口
 
+  Db *db = find_db(dbname);
+  if (db == nullptr) {
+    return RC::SCHEMA_DB_NOT_OPENED;
+  }
+
+  // 如果数据库存在，调用db的drop_table接口
+  return db->drop_table(relation_name);
+
+
   return RC::GENERIC_ERROR;
 }
 

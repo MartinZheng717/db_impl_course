@@ -132,6 +132,38 @@ RC Table::destroy(const char* dir) {
 
   //TODO 清理所有的索引相关文件数据与索引元数据
 
+  // 删除描述表元数据的文件
+  std::string meta_file_path = table_meta_file(dir, table_meta_.name());
+  if (remove(meta_file_path.c_str()) != 0) {
+    LOG_ERROR("Failed to delete meta file: %s", meta_file_path.c_str());
+    return RC::GENERIC_ERROR;
+  }
+
+  // 删除表数据文件
+  std::string data_file_path = table_data_file(dir, table_meta_.name());
+  if (remove(data_file_path.c_str()) != 0) {
+    LOG_ERROR("Failed to delete data file: %s", data_file_path.c_str());
+    return RC::GENERIC_ERROR;
+  }
+
+  // 清理所有的索引相关文件数据与索引元数据
+  for (auto index : indexes_) {
+    std::string index_file_path = table_index_file(dir, table_meta_.name(), index->index_meta().name());
+    if (remove(index_file_path.c_str()) != 0) {
+      LOG_ERROR("Failed to delete index file: %s", index_file_path.c_str());
+      return RC::GENERIC_ERROR;
+    }
+    delete index;
+  }
+  indexes_.clear();
+
+  // 清空DiskBufferPool对象中的相关资源
+  data_buffer_pool_->close_file(file_id_);
+
+  LOG_INFO("Successfully destroyed table: %s", table_meta_.name());
+  return RC::SUCCESS;
+
+
   return RC::GENERIC_ERROR;
 }
 
