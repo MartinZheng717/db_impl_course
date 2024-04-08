@@ -272,7 +272,8 @@ void TupleRecordConverter::add_record(const char *record)
 
         int days_since_epoch = *(int *)(record + field_meta->offset());
         // 1970年1月1日之后的天数
-        int days_since_1970 = days_since_epoch - 1; // 因为1970年1月1日对应的整数是0
+        //int days_since_1970 = days_since_epoch - 1; // 因为1970年1月1日对应的整数是0
+        int days_since_1970 = days_since_epoch;
         // 转换为年月日
         int year = 1970, month = 1, day = 1;
         while (days_since_1970 >= 365 + is_leap_year(year)) {

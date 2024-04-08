@@ -20,6 +20,27 @@ See the Mulan PSL v2 for more details. */
 
 #define FIRST_INDEX_PAGE 1
 
+class Date {
+public:
+    int year;
+    int month;
+    int day;
+
+    // 构造函数
+    Date(int year, int month, int day) : year(year), month(month), day(day) {}
+
+    // 比较操作符重载
+    bool operator<(const Date& other) const {
+      if (year != other.year) return year < other.year;
+      if (month != other.month) return month < other.month;
+      return day < other.day;
+    }
+
+    bool operator==(const Date& other) const {
+      return year == other.year && month == other.month && day == other.day;
+    }
+};
+
 int float_compare(float f1, float f2)
 {
   float result = f1 - f2;
@@ -35,8 +56,7 @@ int attribute_comp(const char *first, const char *second, AttrType attr_type, in
   float f1, f2;
   const char *s1, *s2;
   switch (attr_type) {
-    //TODO 模仿其他类型在相关方法中增加DATES类型
-    case INTS:{
+    case INTS: {
       i1 = *(int *)first;
       i2 = *(int *)second;
       return i1 - i2;
@@ -50,6 +70,16 @@ int attribute_comp(const char *first, const char *second, AttrType attr_type, in
       s1 = first;
       s2 = second;
       return strncmp(s1, s2, attr_length);
+    } break;
+    case DATES: {
+      Date d1 = *(Date *)first;
+      Date d2 = *(Date *)second;
+      // Assuming Date struct has member variables like year, month, day
+      if (d1.year != d2.year)
+        return d1.year - d2.year;
+      if (d1.month != d2.month)
+        return d1.month - d2.month;
+      return d1.day - d2.day;
     } break;
     default: {
       LOG_PANIC("Unknown attr type: %d", attr_type);
@@ -72,7 +102,7 @@ int get_page_index_capacity(int attr_length)
 {
 
   int capacity =
-      ((int)BP_PAGE_DATA_SIZE - sizeof(IndexFileHeader) - sizeof(IndexNode)) / (attr_length + 2 * sizeof(RID));
+          ((int)BP_PAGE_DATA_SIZE - sizeof(IndexFileHeader) - sizeof(IndexNode)) / (attr_length + 2 * sizeof(RID));
   // Here is some tricks
   // 1. reserver one pair of kV for insert operation
   // 2. make sure capacity % 2 == 0, otherwise it is likeyly to occur problem when split node
@@ -294,10 +324,10 @@ RC BplusTreeHandler::print_tree()
   }
 
   LOG_INFO("\n\n\n !!!! Begin to print index %s:%d, page_count:%d, file_header:%s\n\n\n",
-      mem_pool_item_->get_name().c_str(),
-      file_id_,
-      page_count,
-      file_header_.to_string().c_str());
+           mem_pool_item_->get_name().c_str(),
+           file_id_,
+           page_count,
+           file_header_.to_string().c_str());
 
   print_node(root_node_, file_header_.root_page);
   return RC::SUCCESS;
@@ -388,8 +418,8 @@ bool BplusTreeHandler::validate_node(IndexNode *node)
 
     if (found == false) {
       LOG_WARN("Failed to find leaf's first key in internal node. leaf:%s, file_id:%d",
-          node->to_string(file_header_).c_str(),
-          file_id_);
+               node->to_string(file_header_).c_str(),
+               file_id_);
       return false;
     }
   }
@@ -417,7 +447,7 @@ bool BplusTreeHandler::validate_node(IndexNode *node)
     RC rc = disk_buffer_pool_->get_this_page(file_id_, child_page, &child_handle);
     if (rc != RC::SUCCESS) {
       LOG_WARN(
-          "Failed to validte node's child %d, file_id:%d, node:%s", i, file_id_, node->to_string(file_header_).c_str());
+              "Failed to validte node's child %d, file_id:%d, node:%s", i, file_id_, node->to_string(file_header_).c_str());
       continue;
     }
     char *pdata;
@@ -428,9 +458,9 @@ bool BplusTreeHandler::validate_node(IndexNode *node)
     tmp = key_compare(file_header_.attr_type, file_header_.attr_length, cur_key, child_last_key);
     if (tmp <= 0) {
       LOG_WARN("Child's last key is bigger than current key, child:%s, current:%s, file_id:%d",
-          child->to_string(file_header_).c_str(),
-          node->to_string(file_header_).c_str(),
-          file_id_);
+               child->to_string(file_header_).c_str(),
+               node->to_string(file_header_).c_str(),
+               file_id_);
       disk_buffer_pool_->unpin_page(&child_handle);
       return false;
     }
@@ -446,7 +476,7 @@ bool BplusTreeHandler::validate_node(IndexNode *node)
     rc = disk_buffer_pool_->get_this_page(file_id_, next_child_page, &next_child_handle);
     if (rc != RC::SUCCESS) {
       LOG_WARN(
-          "Failed to validte node's child %d, file_id:%d, node:%s", i, file_id_, node->to_string(file_header_).c_str());
+              "Failed to validte node's child %d, file_id:%d, node:%s", i, file_id_, node->to_string(file_header_).c_str());
       disk_buffer_pool_->unpin_page(&child_handle);
       continue;
     }
@@ -458,9 +488,9 @@ bool BplusTreeHandler::validate_node(IndexNode *node)
     if (next_child->is_leaf) {
       if (tmp != 0) {
         LOG_WARN("Next child's first key isn't equal current key, next_child:%s, current:%s, file_id:%d",
-            next_child->to_string(file_header_).c_str(),
-            node->to_string(file_header_).c_str(),
-            file_id_);
+                 next_child->to_string(file_header_).c_str(),
+                 node->to_string(file_header_).c_str(),
+                 file_id_);
         disk_buffer_pool_->unpin_page(&next_child_handle);
         disk_buffer_pool_->unpin_page(&child_handle);
         return false;
@@ -468,9 +498,9 @@ bool BplusTreeHandler::validate_node(IndexNode *node)
     } else {
       if (tmp >= 0) {
         LOG_WARN("Next child's first key isn't equal current key, next_child:%s, current:%s, file_id:%d",
-            next_child->to_string(file_header_).c_str(),
-            node->to_string(file_header_).c_str(),
-            file_id_);
+                 next_child->to_string(file_header_).c_str(),
+                 node->to_string(file_header_).c_str(),
+                 file_id_);
         disk_buffer_pool_->unpin_page(&next_child_handle);
         disk_buffer_pool_->unpin_page(&child_handle);
         return false;
@@ -481,9 +511,9 @@ bool BplusTreeHandler::validate_node(IndexNode *node)
       ret = validate_node(next_child);
       if (ret == false) {
         LOG_WARN("Next child is invalid, next_child:%s, current:%s, file_id:%d",
-            next_child->to_string(file_header_).c_str(),
-            node->to_string(file_header_).c_str(),
-            file_id_);
+                 next_child->to_string(file_header_).c_str(),
+                 node->to_string(file_header_).c_str(),
+                 file_id_);
         disk_buffer_pool_->unpin_page(&next_child_handle);
         disk_buffer_pool_->unpin_page(&child_handle);
         return false;
@@ -493,9 +523,9 @@ bool BplusTreeHandler::validate_node(IndexNode *node)
       if (child->next_brother != next_child_page || next_child->prev_brother != child_page) {
         LOG_WARN("The child 's next brother or the next child's previous brother isn't correct, child:%s, "
                  "next_child:%s, file_id:%d",
-            child->to_string(file_header_).c_str(),
-            next_child->to_string(file_header_).c_str(),
-            file_id_);
+                 child->to_string(file_header_).c_str(),
+                 next_child->to_string(file_header_).c_str(),
+                 file_id_);
         disk_buffer_pool_->unpin_page(&next_child_handle);
         disk_buffer_pool_->unpin_page(&child_handle);
         return false;
@@ -535,8 +565,8 @@ bool BplusTreeHandler::validate_leaf_link()
     if (first_leaf->prev_brother != -1 || first_leaf->next_brother != -1) {
       LOG_WARN("root node is the only node, but either root node's previous brother or next brother is wrong, root:%s, "
                "file_id:%s",
-          first_leaf->to_string(file_header_).c_str(),
-          file_id_);
+               first_leaf->to_string(file_header_).c_str(),
+               file_id_);
       return false;
     }
     return true;
@@ -570,15 +600,15 @@ bool BplusTreeHandler::validate_leaf_link()
 
   if (last_page == -1) {
     LOG_WARN("The last leaf is invalid, last leaf is root:%s, file_id:%d",
-        last_leaf->to_string(file_header_).c_str(),
-        file_id_);
+             last_leaf->to_string(file_header_).c_str(),
+             file_id_);
     disk_buffer_pool_->unpin_page(&first_leaf_handle);
     return false;
   }
 
   if (last_leaf->next_brother != -1 || last_leaf->prev_brother == -1) {
     LOG_WARN(
-        "The last leaf is invalid, last leaf:%s, file_id:%d", last_leaf->to_string(file_header_).c_str(), file_id_);
+            "The last leaf is invalid, last leaf:%s, file_id:%d", last_leaf->to_string(file_header_).c_str(), file_id_);
     disk_buffer_pool_->unpin_page(&first_leaf_handle);
     disk_buffer_pool_->unpin_page(&last_leaf_handle);
     return false;
@@ -612,9 +642,9 @@ bool BplusTreeHandler::validate_leaf_link()
     if (cur_node->next_brother != next_page || next_node->prev_brother != cur_page) {
       LOG_WARN("The leaf 's next brother or the next leaf's previous brother isn't correct, child:%s, next_child:%s, "
                "file_id:%d",
-          cur_node->to_string(file_header_).c_str(),
-          next_node->to_string(file_header_).c_str(),
-          file_id_);
+               cur_node->to_string(file_header_).c_str(),
+               next_node->to_string(file_header_).c_str(),
+               file_id_);
       disk_buffer_pool_->unpin_page(&next_handle);
       goto cleanup;
     }
@@ -627,7 +657,7 @@ bool BplusTreeHandler::validate_leaf_link()
 
     if (leaf_pages.find(next_page) != leaf_pages.end()) {
       LOG_WARN(
-          "Leaf links occur loop, current node:%s, file_id:%d", cur_node->to_string(file_header_).c_str(), file_id_);
+              "Leaf links occur loop, current node:%s, file_id:%d", cur_node->to_string(file_header_).c_str(), file_id_);
       disk_buffer_pool_->unpin_page(&next_handle);
       goto cleanup;
     } else {
@@ -647,7 +677,7 @@ bool BplusTreeHandler::validate_leaf_link()
     ret = true;
   }
 
-cleanup:
+  cleanup:
   if (first_leaf_handle.open) {
     disk_buffer_pool_->unpin_page(&first_leaf_handle);
   }
@@ -683,7 +713,7 @@ RC BplusTreeHandler::find_leaf(const char *pkey, PageNum *leaf_page)
     int i;
     for (i = 0; i < node->key_num; i++) {
       int tmp =
-          key_compare(file_header_.attr_type, file_header_.attr_length, pkey, node->keys + i * file_header_.key_length);
+              key_compare(file_header_.attr_type, file_header_.attr_length, pkey, node->keys + i * file_header_.key_length);
       if (tmp < 0)
         break;
     }
@@ -719,7 +749,7 @@ RC BplusTreeHandler::insert_entry_into_node(IndexNode *node, const char *pkey, c
 
   for (; insert_pos < node->key_num; insert_pos++) {
     tmp = key_compare(
-        file_header_.attr_type, file_header_.attr_length, pkey, node->keys + insert_pos * file_header_.key_length);
+            file_header_.attr_type, file_header_.attr_length, pkey, node->keys + insert_pos * file_header_.key_length);
     if (tmp == 0) {
       LOG_TRACE("Insert into %d occur duplicated key, rid:%s.", file_id_, node->rids[insert_pos].to_string().c_str());
       return RC::RECORD_DUPLICATE_KEY;
@@ -812,7 +842,7 @@ RC BplusTreeHandler::split_leaf(BPPageHandle &leaf_page_handle)
 }
 
 RC BplusTreeHandler::insert_intern_node(
-    BPPageHandle &parent_page_handle, BPPageHandle &left_page_handle, BPPageHandle &right_page_handle, const char *pkey)
+        BPPageHandle &parent_page_handle, BPPageHandle &left_page_handle, BPPageHandle &right_page_handle, const char *pkey)
 {
   PageNum left_page;
   disk_buffer_pool_->get_page_num(&left_page_handle, &left_page);
@@ -902,7 +932,7 @@ RC BplusTreeHandler::split_intern_node(BPPageHandle &inter_page_handle, const ch
 }
 
 RC BplusTreeHandler::insert_into_parent(
-    PageNum parent_page, BPPageHandle &left_page_handle, const char *pkey, BPPageHandle &right_page_handle)
+        PageNum parent_page, BPPageHandle &left_page_handle, const char *pkey, BPPageHandle &right_page_handle)
 {
   if (parent_page == -1) {
     return insert_into_new_root(left_page_handle, pkey, right_page_handle);
@@ -939,6 +969,7 @@ RC BplusTreeHandler::insert_into_parent(
 
 void BplusTreeHandler::swith_root(BPPageHandle &new_root_page_handle, IndexNode *root, PageNum root_page)
 {
+  //@@@ TODO here should add lock
 
   disk_buffer_pool_->unpin_page(&root_page_handle_);
   root_page_handle_ = new_root_page_handle;
@@ -955,7 +986,7 @@ void BplusTreeHandler::swith_root(BPPageHandle &new_root_page_handle, IndexNode 
  * @return
  */
 RC BplusTreeHandler::insert_into_new_root(
-    BPPageHandle &left_page_handle, const char *pkey, BPPageHandle &right_page_handle)
+        BPPageHandle &left_page_handle, const char *pkey, BPPageHandle &right_page_handle)
 {
   BPPageHandle new_root_page_handle;
   RC rc = disk_buffer_pool_->allocate_page(file_id_, &new_root_page_handle);
@@ -1076,11 +1107,11 @@ RC BplusTreeHandler::insert_entry(const char *pkey, const RID *rid)
 }
 
 void BplusTreeHandler::get_entry_from_leaf(
-    IndexNode *node, const char *pkey, std::list<RID> &rids, bool &continue_check)
+        IndexNode *node, const char *pkey, std::list<RID> &rids, bool &continue_check)
 {
   for (int i = node->key_num - 1; i >= 0; i--) {
     int tmp = attribute_comp(
-        pkey, node->keys + (i * file_header_.key_length), file_header_.attr_type, file_header_.attr_length);
+            pkey, node->keys + (i * file_header_.key_length), file_header_.attr_type, file_header_.attr_length);
     if (tmp < 0) {
       if (continue_check == true) {
         LOG_WARN("Something is wrong, the sequence is wrong.");
@@ -1124,7 +1155,7 @@ RC BplusTreeHandler::get_entry(const char *pkey, std::list<RID> &rids)
     int i;
     for (i = 0; i < node->key_num; i++) {
       int tmp = attribute_comp(
-          pkey, node->keys + i * file_header_.key_length, file_header_.attr_type, file_header_.attr_length);
+              pkey, node->keys + i * file_header_.key_length, file_header_.attr_type, file_header_.attr_length);
       if (tmp < 0)
         break;
     }
@@ -1192,13 +1223,13 @@ void BplusTreeHandler::delete_entry_from_node(IndexNode *node, const int delete_
 }
 
 RC BplusTreeHandler::get_parent_changed_index(
-    BPPageHandle &parent_handle, IndexNode *&parent, IndexNode *node, PageNum page_num, int &changed_index)
+        BPPageHandle &parent_handle, IndexNode *&parent, IndexNode *node, PageNum page_num, int &changed_index)
 {
   RC rc = disk_buffer_pool_->get_this_page(file_id_, node->parent, &parent_handle);
   if (rc != RC::SUCCESS) {
     LOG_WARN("Failed to delete index, due to failed to get pareent page, file_id:%d, parent_page:%d",
-        file_id_,
-        node->parent);
+             file_id_,
+             node->parent);
     return rc;
   }
   char *pdata;
@@ -1213,9 +1244,9 @@ RC BplusTreeHandler::get_parent_changed_index(
 
   if (changed_index == parent->key_num + 1) {
     LOG_WARN("Something is wrong, failed to find the target page %d in parent, node:%s file_id:%d",
-        page_num,
-        node->to_string(file_header_).c_str(),
-        file_id_);
+             page_num,
+             node->to_string(file_header_).c_str(),
+             file_id_);
     print_tree();
     return RC::RECORD_CLOSED;
   }
@@ -1295,8 +1326,8 @@ RC BplusTreeHandler::change_leaf_parent_key_delete(IndexNode *leaf, int delete_i
     RC rc = disk_buffer_pool_->get_this_page(file_id_, node->parent, &parent_handle);
     if (rc != RC::SUCCESS) {
       LOG_WARN("Failed to delete index, due to failed to get pareent page, file_id:%d, parent_page:%d",
-          file_id_,
-          node->parent);
+               file_id_,
+               node->parent);
       return rc;
     }
     char *pdata;
@@ -1306,9 +1337,9 @@ RC BplusTreeHandler::change_leaf_parent_key_delete(IndexNode *leaf, int delete_i
     int tmp = 0;
     while (index < node->key_num) {
       tmp = key_compare(file_header_.attr_type,
-          file_header_.attr_length,
-          old_first_key,
-          node->keys + index * file_header_.key_length);
+                        file_header_.attr_length,
+                        old_first_key,
+                        node->keys + index * file_header_.key_length);
       if (tmp == 0) {
         found = true;
         memcpy(node->keys + index * file_header_.key_length, leaf->keys, file_header_.key_length);
@@ -1340,7 +1371,7 @@ RC BplusTreeHandler::delete_entry_from_node(IndexNode *node, const char *pkey, i
   int delete_index, tmp;
   for (delete_index = 0; delete_index < node->key_num; delete_index++) {
     tmp = key_compare(
-        file_header_.attr_type, file_header_.attr_length, pkey, node->keys + delete_index * file_header_.key_length);
+            file_header_.attr_type, file_header_.attr_length, pkey, node->keys + delete_index * file_header_.key_length);
     if (tmp == 0) {
       node_delete_index = delete_index;
       break;
@@ -1420,7 +1451,7 @@ RC BplusTreeHandler::change_delete_leaf_link(IndexNode *left, IndexNode *right, 
  * @return
  */
 RC BplusTreeHandler::coalesce_node(BPPageHandle &parent_handle, BPPageHandle &left_handle, BPPageHandle &right_handle,
-    int delete_index, bool check_change_leaf_key, int node_delete_index, const char *pkey)
+                                   int delete_index, bool check_change_leaf_key, int node_delete_index, const char *pkey)
 {
   PageNum left_page, right_page, parent_page;
   IndexNode *left, *right, *parent;
@@ -1573,7 +1604,7 @@ void BplusTreeHandler::merge_nodes(IndexNode *left_node, IndexNode *right_node, 
  * This function is contrary to merge_node
  */
 void BplusTreeHandler::split_node(
-    IndexNode *left_node, IndexNode *right_node, PageNum left_page, PageNum right_page, char *new_parent_key)
+        IndexNode *left_node, IndexNode *right_node, PageNum left_page, PageNum right_page, char *new_parent_key)
 {
   bool is_leaf = left_node->is_leaf;
   int old_left_key_num = left_node->key_num;
@@ -1643,7 +1674,7 @@ void BplusTreeHandler::copy_node(IndexNode *to, IndexNode *from)
 }
 
 void BplusTreeHandler::redistribute_nodes(
-    IndexNode *left_node, IndexNode *right_node, PageNum left_page, PageNum right_page, char *parent_key)
+        IndexNode *left_node, IndexNode *right_node, PageNum left_page, PageNum right_page, char *parent_key)
 {
   bool is_leaf = left_node->is_leaf;
   int old_left_key_num = left_node->key_num;
@@ -1777,7 +1808,7 @@ void BplusTreeHandler::redistribute_nodes(
 }
 
 RC BplusTreeHandler::redistribute_nodes(
-    BPPageHandle &parent_handle, BPPageHandle &left_handle, BPPageHandle &right_handle)
+        BPPageHandle &parent_handle, BPPageHandle &left_handle, BPPageHandle &right_handle)
 {
 
   PageNum left_page, right_page;
@@ -1847,8 +1878,8 @@ RC BplusTreeHandler::can_merge_with_other(BPPageHandle *page_handle, PageNum pag
   RC rc = disk_buffer_pool_->get_this_page(file_id_, page_num, page_handle);
   if (rc != RC::SUCCESS) {
     LOG_WARN("Failed to delete index, due to failed to get page of current delete page, file_id:%d, page:%d",
-        file_id_,
-        page_num);
+             file_id_,
+             page_num);
     return rc;
   }
   char *pdata;
@@ -1865,7 +1896,7 @@ RC BplusTreeHandler::delete_entry_internal(PageNum page_num, const char *pkey)
   RC rc = disk_buffer_pool_->get_this_page(file_id_, page_num, &page_handle);
   if (rc != RC::SUCCESS) {
     LOG_WARN(
-        "Failed to delete entry in index node, due to failed to get page!, file_id:%d, page:%d", file_id_, page_num);
+            "Failed to delete entry in index node, due to failed to get page!, file_id:%d, page:%d", file_id_, page_num);
     return rc;
   }
 
@@ -1955,8 +1986,8 @@ RC BplusTreeHandler::delete_entry_internal(PageNum page_num, const char *pkey)
         if (rc != RC::SUCCESS) {
           LOG_WARN("Failed to delete index, due to failed to get right page of current delete page, file_id:%d, "
                    "right_page:$d",
-              file_id_,
-              right_page);
+                   file_id_,
+                   right_page);
 
           goto cleanup;
         }
@@ -1986,7 +2017,7 @@ RC BplusTreeHandler::delete_entry_internal(PageNum page_num, const char *pkey)
     }
   }
 
-cleanup:
+  cleanup:
   if (rc != RC::SUCCESS) {
     insert_entry_into_node(node, pkey, (RID *)(pkey + file_header_.attr_length), page_num);
   }
@@ -2084,7 +2115,7 @@ RC BplusTreeHandler::find_first_index_satisfied(CompOp compop, const char *key, 
     node = get_index_node(pdata);
     for (i = 0; i < node->key_num; i++) {
       tmp = attribute_comp(
-          node->keys + i * file_header_.key_length, key, file_header_.attr_type, file_header_.attr_length);
+              node->keys + i * file_header_.key_length, key, file_header_.attr_type, file_header_.attr_length);
       if (compop == EQUAL_TO || compop == GREAT_EQUAL) {
         if (tmp >= 0) {
           disk_buffer_pool_->get_page_num(&page_handle, page_num);
@@ -2296,7 +2327,6 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
 
   AttrType attr_type = index_handler_.file_header_.attr_type;
   switch (attr_type) {
-    //TODO 模仿其他类型在相关方法中增加DATES类型
     case INTS:
       i1 = *(int *)pkey;
       i2 = *(int *)value_;
@@ -2309,6 +2339,14 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
       s1 = pkey;
       s2 = value_;
       break;
+    case DATES: {
+      Date d1 = *(Date *)pkey;
+      Date d2 = *(Date *)value_;
+
+      //if (d1.year != d2.year || d1.month != d2.month || d1.day != d2.day) {
+      //return false;
+      //}
+    } break;
     default:
       LOG_PANIC("Unknown attr type: %d", attr_type);
   }
@@ -2318,7 +2356,6 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
   int attr_length = index_handler_.file_header_.attr_length;
   switch (comp_op_) {
     case EQUAL_TO:
-      //TODO 模仿其他类型在相关方法中增加DATES类型
       switch (attr_type) {
         case INTS:
           flag = (i1 == i2);
@@ -2329,13 +2366,18 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
         case CHARS:
           flag = (strncmp(s1, s2, attr_length) == 0);
           break;
+        case DATES: {
+          Date d1 = *(Date *)pkey;
+          Date d2 = *(Date *)value_;
+          // Assuming Date struct has member variables like year, month, day
+          flag = (d1.year == d2.year) && (d1.month == d2.month) && (d1.day == d2.day);
+        } break;
         default:
           LOG_PANIC("Unknown attr type: %d", attr_type);
       }
       break;
     case LESS_THAN:
       switch (attr_type) {
-        //TODO 模仿其他类型在相关方法中增加DATES类型
         case INTS:
           flag = (i1 < i2);
           break;
@@ -2345,13 +2387,18 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
         case CHARS:
           flag = (strncmp(s1, s2, attr_length) < 0);
           break;
+        case DATES: {
+          Date d1 = *(Date *)pkey;
+          Date d2 = *(Date *)value_;
+          // Assuming Date struct has member variables like year, month, day
+          flag = (d1.year < d2.year) || ((d1.year == d2.year) && (d1.month < d2.month)) || ((d1.year == d2.year) && (d1.month == d2.month) && (d1.day < d2.day));
+        } break;
         default:
           LOG_PANIC("Unknown attr type: %d", attr_type);
       }
       break;
     case GREAT_THAN:
       switch (attr_type) {
-        //TODO 模仿其他类型在相关方法中增加DATES类型
         case INTS:
           flag = (i1 > i2);
           break;
@@ -2361,13 +2408,18 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
         case CHARS:
           flag = (strncmp(s1, s2, attr_length) > 0);
           break;
+        case DATES: {
+          Date d1 = *(Date *)pkey;
+          Date d2 = *(Date *)value_;
+          // Assuming Date struct has member variables like year, month, day
+          flag = (d1.year > d2.year) || ((d1.year == d2.year) && (d1.month > d2.month)) || ((d1.year == d2.year) && (d1.month == d2.month) && (d1.day > d2.day));
+        } break;
         default:
           LOG_PANIC("Unknown attr type: %d", attr_type);
       }
       break;
     case LESS_EQUAL:
       switch (attr_type) {
-        //TODO 模仿其他类型在相关方法中增加DATES类型
         case INTS:
           flag = (i1 <= i2);
           break;
@@ -2377,13 +2429,18 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
         case CHARS:
           flag = (strncmp(s1, s2, attr_length) <= 0);
           break;
+        case DATES: {
+          Date d1 = *(Date *)pkey;
+          Date d2 = *(Date *)value_;
+          // Assuming Date struct has member variables like year, month, day
+          flag = (d1.year <= d2.year) || ((d1.year == d2.year) && (d1.month <= d2.month)) || ((d1.year == d2.year) && (d1.month == d2.month) && (d1.day <= d2.day));
+        } break;
         default:
           LOG_PANIC("Unknown attr type: %d", attr_type);
       }
       break;
     case GREAT_EQUAL:
       switch (attr_type) {
-        //TODO 模仿其他类型在相关方法中增加DATES类型
         case INTS:
           flag = (i1 >= i2);
           break;
@@ -2393,13 +2450,18 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
         case CHARS:
           flag = (strncmp(s1, s2, attr_length) >= 0);
           break;
+        case DATES: {
+          Date d1 = *(Date *)pkey;
+          Date d2 = *(Date *)value_;
+          // Assuming Date struct has member variables like year, month, day
+          flag = (d1.year >= d2.year) || ((d1.year == d2.year) && (d1.month >= d2.month)) || ((d1.year == d2.year) && (d1.month == d2.month) && (d1.day >= d2.day));
+        } break;
         default:
           LOG_PANIC("Unknown attr type: %d", attr_type);
       }
       break;
     case NOT_EQUAL:
       switch (attr_type) {
-        //TODO 模仿其他类型在相关方法中增加DATES类型
         case INTS:
           flag = (i1 != i2);
           break;
@@ -2409,6 +2471,12 @@ bool BplusTreeScanner::satisfy_condition(const char *pkey)
         case CHARS:
           flag = (strncmp(s1, s2, attr_length) != 0);
           break;
+        case DATES: {
+          Date d1 = *(Date *)pkey;
+          Date d2 = *(Date *)value_;
+          // Assuming Date struct has member variables like year, month, day
+          flag = (d1.year != d2.year) || ((d1.year == d2.year) && (d1.month != d2.month)) || ((d1.year == d2.year) && (d1.month == d2.month) && (d1.day != d2.day));
+        } break;
         default:
           LOG_PANIC("Unknown attr type: %d", attr_type);
       }
