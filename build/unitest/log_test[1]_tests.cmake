@@ -1,0 +1,5 @@
+add_test([=[checkRotateTest.CheckRoateTest]=]  /home/zhengzhiwei/db_impl_course/build/bin/log_test [==[--gtest_filter=checkRotateTest.CheckRoateTest]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[checkRotateTest.CheckRoateTest]=]  PROPERTIES WORKING_DIRECTORY /home/zhengzhiwei/db_impl_course/build/unitest SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[testEnableTest.CheckEnableTest]=]  /home/zhengzhiwei/db_impl_course/build/bin/log_test [==[--gtest_filter=testEnableTest.CheckEnableTest]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[testEnableTest.CheckEnableTest]=]  PROPERTIES WORKING_DIRECTORY /home/zhengzhiwei/db_impl_course/build/unitest SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  log_test_TESTS checkRotateTest.CheckRoateTest testEnableTest.CheckEnableTest)

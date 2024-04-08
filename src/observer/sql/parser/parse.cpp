@@ -63,6 +63,23 @@ bool check_date(int y, int m, int d)
   // TODO 根据 y:year,m:month,d:day 校验日期是否合法
   // TODO 合法 return 0
   // TODO 不合法 return 1
+
+  // 根据 y: 年, m: 月, d: 日 校验日期是否合法
+  // 检查月份和日期的合法性
+  if (y < 0 || m < 1 || m > 12 || d < 1 || d > 31)
+    return false;
+
+  // 检查每个月的日期范围
+  int days_in_month;
+  if (m == 2 && (y % 4 == 0 && (y % 100 != 0 || y % 400 == 0))) // 闰年2月
+    days_in_month = 29;
+  else
+    days_in_month = (int[]){31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}[m - 1];
+
+  if (d > days_in_month)
+    return false;
+
+
   return 1;
 }
 
@@ -78,6 +95,27 @@ int value_init_date(Value *value, const char *v) {
   // TODO 将日期转换成整数
 
   // TODO 将value 的 data 属性修改为转换后的日期
+
+  // 将日期转换成整数（以天数表示）
+  int date_integer = 0;
+  int months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+  for (int i = 1970; i < y; ++i) {
+    if (i % 4 == 0 && (i % 100 != 0 || i % 400 == 0)) // 闰年
+      date_integer += 366;
+    else
+      date_integer += 365;
+  }
+  for (int i = 1; i < m; ++i) {
+    date_integer += months[i - 1];
+    if (i == 2 && (y % 4 == 0 && (y % 100 != 0 || y % 400 == 0))) // 闰年二月
+      date_integer += 1;
+  }
+  date_integer += d - 1; // 减1是因为日期从1开始计数
+
+  // 修改 value 的 data 属性为转换后的日期整数
+  value->data = malloc(sizeof(int));
+  memcpy(value->data, &date_integer, sizeof(int));
+
 
   return 0;
 }

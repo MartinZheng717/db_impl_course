@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="obclient"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\deps\;CMake Files\deps\common\;CMake Files\src\;CMake Files\src\obclient\;CMake Files\src\observer\;CMake Files\unitest\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\lib\;CMake Files\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\usr\local\lib\cmake\GTest\;CMake Files\test\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/build/src/obclient"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="obclient">
+				<Option output="/home/zhengzhiwei/db_impl_course/build/bin/obclient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/build/src/obclient/../../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-DENABLE_DEBUG"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/obclient/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/obclient/../../deps"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 obclient"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="obclient/fast">
+				<Option output="/home/zhengzhiwei/db_impl_course/build/bin/obclient" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/build/src/obclient/../../bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-DENABLE_DEBUG"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/obclient/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/obclient/../../deps"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 obclient/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/zhengzhiwei/db_impl_course/build/src/obclient/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/src/obclient/client.cpp">
+			<Option target="obclient"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\deps\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/common/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\deps\common\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/src/obclient/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\obclient\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/src/observer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\observer\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/unitest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\unitest\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/../../../usr/local/lib/cmake/GTest/GTestConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\GTest\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/../../../usr/local/lib/cmake/GTest/GTestConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\GTest\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/../../../usr/local/lib/cmake/GTest/GTestTargets-noconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\GTest\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/../../../usr/local/lib/cmake/GTest/GTestTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\usr\local\lib\cmake\GTest\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
