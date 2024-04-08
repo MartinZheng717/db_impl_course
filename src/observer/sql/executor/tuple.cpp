@@ -234,6 +234,14 @@ const std::vector<Tuple> &TupleSet::tuples() const
 TupleRecordConverter::TupleRecordConverter(Table *table, TupleSet &tuple_set) : table_(table), tuple_set_(tuple_set)
 {}
 
+bool is_leap_year(int year) {
+  if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 void TupleRecordConverter::add_record(const char *record)
 {
   const TupleSchema &schema = tuple_set_.schema();
@@ -261,6 +269,27 @@ void TupleRecordConverter::add_record(const char *record)
         // TODO 将日期转换为满足输出格式的字符串，注意这里月份和天数，不足两位时需要填充0
 
         // TODO 将字符串添加到tuple中
+
+        int days_since_epoch = *(int *)(record + field_meta->offset());
+        // 1970年1月1日之后的天数
+        int days_since_1970 = days_since_epoch - 1; // 因为1970年1月1日对应的整数是0
+        // 转换为年月日
+        int year = 1970, month = 1, day = 1;
+        while (days_since_1970 >= 365 + is_leap_year(year)) {
+          days_since_1970 -= 365 + is_leap_year(year);
+          ++year;
+        }
+        int days_in_month[] = {31, 28 + is_leap_year(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        while (days_since_1970 >= days_in_month[month - 1]) {
+          days_since_1970 -= days_in_month[month - 1];
+          ++month;
+        }
+        day += days_since_1970;
+        // 将年月日转换为字符串
+        char date_str[11]; // YYYY-MM-DD\0
+        snprintf(date_str, sizeof(date_str), "%04d-%02d-%02d", year, month, day);
+        tuple.add(date_str, strlen(date_str));
+
 
       }break;
       default: {

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/db_impl_course.iml" filepath="$PROJECT_DIR$/.idea/db_impl_course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/minidb.iml" filepath="$PROJECT_DIR$/.idea/minidb.iml" />
     </modules>
   </component>
 </project>

@@ -160,6 +160,12 @@ bool DefaultConditionFilter::filter(const Record &rec) const
     } break;
     case DATES: {
       //TODO 参考INTS进行大小段转换
+
+      int left = *(int *)left_value;
+      int right = *(int *)right_value;
+      cmp_result = left - right;
+
+
     } break;
     default: {
     }

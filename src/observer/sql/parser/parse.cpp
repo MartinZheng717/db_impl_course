@@ -96,6 +96,9 @@ int value_init_date(Value *value, const char *v) {
 
   // TODO 将value 的 data 属性修改为转换后的日期
 
+  // 修改 value 的 type 属性为日期属性: DATES
+  value->type = DATES;
+
   // 将日期转换成整数（以天数表示）
   int date_integer = 0;
   int months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
