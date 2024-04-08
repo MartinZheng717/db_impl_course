@@ -6,5 +6,5 @@ CXX_DEFINES = -DENABLE_DEBUG -DLINUX -DMAIJOR_VER=1 -DMINOR_VER=0 -DOTHER_VER=1 
 
 CXX_INCLUDES = -I/home/zhengzhiwei/db_impl_course/deps/common/..
 
-CXX_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O0 -g -DDEBUG  -g -fdiagnostics-color=always -std=gnu++14
+CXX_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O0 -g -DDEBUG  -std=gnu++14
 

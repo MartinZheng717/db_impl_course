@@ -7,11 +7,11 @@ C_DEFINES = -DENABLE_DEBUG -DLINUX -DUNIX
 
 C_INCLUDES = -I/home/zhengzhiwei/db_impl_course/src/observer/. -I/home/zhengzhiwei/db_impl_course/src/observer -I/home/zhengzhiwei/db_impl_course/src/observer/../../deps
 
-C_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O0 -g -DDEBUG  -g -fdiagnostics-color=always
+C_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O0 -g -DDEBUG 
 
 CXX_DEFINES = -DENABLE_DEBUG -DLINUX -DUNIX
 
 CXX_INCLUDES = -I/home/zhengzhiwei/db_impl_course/src/observer/. -I/home/zhengzhiwei/db_impl_course/src/observer -I/home/zhengzhiwei/db_impl_course/src/observer/../../deps
 
-CXX_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O0 -g -DDEBUG  -g -fdiagnostics-color=always -std=gnu++14
+CXX_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O0 -g -DDEBUG  -std=gnu++14
 

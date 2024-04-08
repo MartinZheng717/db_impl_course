@@ -6,5 +6,5 @@ CXX_DEFINES = -DENABLE_DEBUG -DLINUX -DUNIX
 
 CXX_INCLUDES = -I/home/zhengzhiwei/db_impl_course/unitest/. -I/home/zhengzhiwei/db_impl_course/unitest/../deps -I/home/zhengzhiwei/db_impl_course/unitest/../src/observer
 
-CXX_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O0 -g -DDEBUG  -g -fdiagnostics-color=always -std=gnu++14
+CXX_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O0 -g -DDEBUG  -std=gnu++14
 
