@@ -121,13 +121,16 @@ public:
        * 2. 如果lru cache中不存在这个页，则返回nullptr
        */
       BufferTag tag = {file_desc, page_num};
-      int idx;
-      if (lrucache.get(tag, &idx)) {
-        return &frame[idx];
+      if (lrucache.exists({file_desc, page_num})) {
+        int idx;
+        lrucache.get(tag, &idx);
+        return &(frame[idx]);
+      } else {
+        // 2. 如果lru cache中不存在这个页，则返回nullptr
+        return nullptr;
       }
 
 
-      return nullptr;
     }
 
     Frame *getFrame() {
