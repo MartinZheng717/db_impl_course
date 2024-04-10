@@ -78,28 +78,26 @@ Frame *BPManager::alloc(int file_desc, PageNum page_num) {
     lrucache.victim(victim, {file_desc, page_num});
     return victim_frame;
   }
-
-
   return nullptr;
 }
 
 void BPManager::printLruCache() {
-    // 输出lru cache中的内容，从head输出到tail，head表示最近访问的页，tail表示最近最少使用的页
-    // 输出格式是：<file_id>:<page_num>:<buffer index>  其中buffer_index表示这个页在buffer中的下标
-    for (auto it = lrucache._cache_items_list.begin(); it != lrucache._cache_items_list.end(); it++) {
-      int file_desc = it->first.first;
-      int page_num = it->first.second;
-      int buffer_index = it->second;
-      int i;
-      for (i = 0; disk_buffer_pool->open_list_[i]; i++) {
-        if (disk_buffer_pool->open_list_[i]->file_desc == file_desc) {
-          break;
-        }
+  // 输出lru cache中的内容，从head输出到tail，head表示最近访问的页，tail表示最近最少使用的页
+  // 输出格式是：<file_id>:<page_num>:<buffer index>  其中buffer_index表示这个页在buffer中的下标
+  for (auto it = lrucache._cache_items_list.begin(); it != lrucache._cache_items_list.end(); it++) {
+    int file_desc = it->first.first;
+    int page_num = it->first.second;
+    int buffer_index = it->second;
+    int i;
+    for (i = 0; disk_buffer_pool->open_list_[i]; i++) {
+      if (disk_buffer_pool->open_list_[i]->file_desc == file_desc) {
+        break;
       }
-      printf("%d:%d:%d ", i, page_num, buffer_index);
     }
-    printf("\n");
+    printf("%d:%d:%d ", i, page_num, buffer_index);
   }
+  printf("\n");
+}
 
 RC DiskBufferPool::create_file(const char *file_name) {
   int fd = open(file_name, O_RDWR | O_CREAT | O_EXCL, S_IREAD | S_IWRITE);
@@ -349,7 +347,7 @@ RC DiskBufferPool::allocate_page(int file_id, BPPageHandle *page_handle) {
   page_handle->frame->acc_time = current_time();
   memset(&(page_handle->frame->page), 0, sizeof(Page));
   page_handle->frame->page.page_num =
-      file_handle->file_sub_header->page_count - 1;
+          file_handle->file_sub_header->page_count - 1;
 
   // Use flush operation to extion file
   if ((tmp = flush_block(page_handle->frame)) != RC::SUCCESS) {

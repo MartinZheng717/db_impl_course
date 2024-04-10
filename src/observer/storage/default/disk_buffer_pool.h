@@ -76,7 +76,7 @@ public:
     BPFileSubHeader *file_sub_header;
 };
 
-/** 
+/**
  * BPManager中lrucache对象需要用到的哈希函数，来将BufferTag进行哈希计算
  */
 struct hash_func {
@@ -129,8 +129,6 @@ public:
         // 2. 如果lru cache中不存在这个页，则返回nullptr
         return nullptr;
       }
-
-
     }
 
     Frame *getFrame() {
