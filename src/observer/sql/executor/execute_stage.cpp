@@ -220,6 +220,20 @@ bool match_join_condition(const Tuple *res_tuple,
   // 每一条的3个元素代表（左值的属性在新schema的下标，CompOp运算符，右值的属性在新schema的下标）
   //TODO 判断表中某一行 res_tuple 是否满足多表联查条件即：左值=右值
 
+  for (const auto& condition : condition_idxs) {
+    int left_idx = condition[0];
+    CompOp comp = static_cast<CompOp>(condition[1]);
+    int right_idx = condition[2];
+
+    const auto& left_value = res_tuple->get(left_idx);
+    const auto& right_value = res_tuple->get(right_idx);
+
+    if (left_value.compare(right_value) != 0) {
+      return false;
+    }
+  }
+
+
   return true;
 }
 
@@ -231,6 +245,21 @@ Tuple merge_tuples(
   Tuple res_tuple;
   //TODO 先把每个字段都放到对应的位置上(temp_res)
   //TODO 再依次(orders)添加到大元组(res_tuple)里即可
+
+  for (const auto& tuple_iter : temp_tuples) {
+    for (size_t i = 0; i < tuple_iter->size(); ++i) {
+      temp_res.push_back(tuple_iter->get_pointer(i));
+    }
+  }
+
+  //TODO 再依次(orders)添加到大元组(res_tuple)里即可
+  for (size_t i = 0; i < orders.size(); ++i) {
+    int order = orders[i];
+    res_tuple.add(temp_res[order]);
+  }
+
+  return res_tuple;
+
 }
 
 // 这里没有对输入的某些信息做合法性校验，比如查询的列名、where条件中的列名等，没有做必要的合法性校验
@@ -301,6 +330,13 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
     // 如果是select * ，添加所有字段
     // 如果是select t1.*，表名匹配的加入字段
     // 如果是select t1.age，表名+字段名匹配的加入字段
+
+    for (const auto &field : old_schema.fields()) {
+      join_schema.add(field);
+      select_order.push_back(old_schema.index_of_field(field.table_name(), field.field_name()));
+    }
+
+
     print_tuples.set_schema(join_schema);
 
     // 构建联查的conditions需要找到对应的表
@@ -327,6 +363,20 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
     }
     //TODO 元组的拼接需要实现笛卡尔积
     //TODO 将符合连接条件的元组添加到print_tables中
+
+    for (const auto& tuple1 : tuple_sets.front().tuples()) {
+      for (const auto& tuple2 : tuple_sets.back().tuples()) {
+        if (match_join_condition(&tuple1, condition_idxs)) {
+          // 创建包含两个迭代器的向量
+          std::vector<std::vector<Tuple>::const_iterator> temp_tuples = {tuple_sets.front().tuples().begin(), tuple_sets.back().tuples().begin()};
+
+          // 调用 merge_tuples 函数
+          Tuple merged_tuple = merge_tuples(temp_tuples, select_order);
+          print_tuples.add(std::move(merged_tuple));
+        }
+      }
+    }
+
 
       print_tuples.print(ss);
     } else {
@@ -422,7 +472,7 @@ RC create_selection_executor(Trx *trx, const Selects &selects, const char *db,
 
   //如果是聚合函数：count/min/max/avg(PARAMETER)，直接select PARAMETER
   if (selects.aggregation_num > 0 && selects.attr_num == 0) {
-    //TODO
+
   } else {  // 正常的投影操作
     for (int i = selects.attr_num - 1; i >= 0; i--) {
       const RelAttr &attr = selects.attributes[i];
