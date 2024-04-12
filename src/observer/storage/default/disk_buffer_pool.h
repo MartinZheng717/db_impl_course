@@ -137,7 +137,6 @@ public:
        * 返回frame数组
        */
       return frame;
-      return nullptr;
     }
 
     bool *getAllocated() {
@@ -146,7 +145,6 @@ public:
        * 返回allocated数组
        */
       return allocated;
-      return nullptr;
     }
 
     void printLruCache();
