@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/linklist.dir/main.cpp.o -o linklist 
