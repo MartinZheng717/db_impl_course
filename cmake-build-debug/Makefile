@@ -85,51 +85,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"dev\" \"lib\" \"runtime\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles /home/zhengzhiwei/db_impl_course/cmake-build-debug//CMakeFiles/progress.marks
@@ -162,277 +117,89 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named common
+# Target rules for targets named ccLock
 
 # Build rule for target.
-common: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 common
-.PHONY : common
+ccLock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ccLock
+.PHONY : ccLock
 
 # fast build rule for target.
-common/fast:
-	$(MAKE) $(MAKESILENT) -f deps/common/CMakeFiles/common.dir/build.make deps/common/CMakeFiles/common.dir/build
-.PHONY : common/fast
+ccLock/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/build
+.PHONY : ccLock/fast
 
-#=============================================================================
-# Target rules for targets named common_static
+cc_lock.o: cc_lock.cpp.o
+.PHONY : cc_lock.o
 
-# Build rule for target.
-common_static: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 common_static
-.PHONY : common_static
+# target to build an object file
+cc_lock.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/cc_lock.cpp.o
+.PHONY : cc_lock.cpp.o
 
-# fast build rule for target.
-common_static/fast:
-	$(MAKE) $(MAKESILENT) -f deps/common/CMakeFiles/common_static.dir/build.make deps/common/CMakeFiles/common_static.dir/build
-.PHONY : common_static/fast
+cc_lock.i: cc_lock.cpp.i
+.PHONY : cc_lock.i
 
-#=============================================================================
-# Target rules for targets named obclient
+# target to preprocess a source file
+cc_lock.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/cc_lock.cpp.i
+.PHONY : cc_lock.cpp.i
 
-# Build rule for target.
-obclient: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obclient
-.PHONY : obclient
+cc_lock.s: cc_lock.cpp.s
+.PHONY : cc_lock.s
 
-# fast build rule for target.
-obclient/fast:
-	$(MAKE) $(MAKESILENT) -f src/obclient/CMakeFiles/obclient.dir/build.make src/obclient/CMakeFiles/obclient.dir/build
-.PHONY : obclient/fast
+# target to generate assembly for a file
+cc_lock.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/cc_lock.cpp.s
+.PHONY : cc_lock.cpp.s
 
-#=============================================================================
-# Target rules for targets named observer
+main.o: main.cpp.o
+.PHONY : main.o
 
-# Build rule for target.
-observer: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 observer
-.PHONY : observer
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-# fast build rule for target.
-observer/fast:
-	$(MAKE) $(MAKESILENT) -f src/observer/CMakeFiles/observer.dir/build.make src/observer/CMakeFiles/observer.dir/build
-.PHONY : observer/fast
+main.i: main.cpp.i
+.PHONY : main.i
 
-#=============================================================================
-# Target rules for targets named observer_static
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-# Build rule for target.
-observer_static: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 observer_static
-.PHONY : observer_static
+main.s: main.cpp.s
+.PHONY : main.s
 
-# fast build rule for target.
-observer_static/fast:
-	$(MAKE) $(MAKESILENT) -f src/observer/CMakeFiles/observer_static.dir/build.make src/observer/CMakeFiles/observer_static.dir/build
-.PHONY : observer_static/fast
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/main.cpp.s
+.PHONY : main.cpp.s
 
-#=============================================================================
-# Target rules for targets named event_core_static
+structure.o: structure.cpp.o
+.PHONY : structure.o
 
-# Build rule for target.
-event_core_static: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_core_static
-.PHONY : event_core_static
+# target to build an object file
+structure.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/structure.cpp.o
+.PHONY : structure.cpp.o
 
-# fast build rule for target.
-event_core_static/fast:
-	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/event_core_static.dir/build.make libevent/CMakeFiles/event_core_static.dir/build
-.PHONY : event_core_static/fast
+structure.i: structure.cpp.i
+.PHONY : structure.i
 
-#=============================================================================
-# Target rules for targets named event_extra_static
+# target to preprocess a source file
+structure.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/structure.cpp.i
+.PHONY : structure.cpp.i
 
-# Build rule for target.
-event_extra_static: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_extra_static
-.PHONY : event_extra_static
+structure.s: structure.cpp.s
+.PHONY : structure.s
 
-# fast build rule for target.
-event_extra_static/fast:
-	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/event_extra_static.dir/build.make libevent/CMakeFiles/event_extra_static.dir/build
-.PHONY : event_extra_static/fast
-
-#=============================================================================
-# Target rules for targets named event_pthreads_static
-
-# Build rule for target.
-event_pthreads_static: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_pthreads_static
-.PHONY : event_pthreads_static
-
-# fast build rule for target.
-event_pthreads_static/fast:
-	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/event_pthreads_static.dir/build.make libevent/CMakeFiles/event_pthreads_static.dir/build
-.PHONY : event_pthreads_static/fast
-
-#=============================================================================
-# Target rules for targets named event_static
-
-# Build rule for target.
-event_static: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_static
-.PHONY : event_static
-
-# fast build rule for target.
-event_static/fast:
-	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/event_static.dir/build.make libevent/CMakeFiles/event_static.dir/build
-.PHONY : event_static/fast
-
-#=============================================================================
-# Target rules for targets named uninstall
-
-# Build rule for target.
-uninstall: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uninstall
-.PHONY : uninstall
-
-# fast build rule for target.
-uninstall/fast:
-	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/uninstall.dir/build.make libevent/CMakeFiles/uninstall.dir/build
-.PHONY : uninstall/fast
-
-#=============================================================================
-# Target rules for targets named jsoncpp_static
-
-# Build rule for target.
-jsoncpp_static: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 jsoncpp_static
-.PHONY : jsoncpp_static
-
-# fast build rule for target.
-jsoncpp_static/fast:
-	$(MAKE) $(MAKESILENT) -f jsoncpp/src/lib_json/CMakeFiles/jsoncpp_static.dir/build.make jsoncpp/src/lib_json/CMakeFiles/jsoncpp_static.dir/build
-.PHONY : jsoncpp_static/fast
-
-#=============================================================================
-# Target rules for targets named bitmap_test
-
-# Build rule for target.
-bitmap_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bitmap_test
-.PHONY : bitmap_test
-
-# fast build rule for target.
-bitmap_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/bitmap_test.dir/build.make unitest/CMakeFiles/bitmap_test.dir/build
-.PHONY : bitmap_test/fast
-
-#=============================================================================
-# Target rules for targets named bp_manager_test
-
-# Build rule for target.
-bp_manager_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bp_manager_test
-.PHONY : bp_manager_test
-
-# fast build rule for target.
-bp_manager_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/bp_manager_test.dir/build.make unitest/CMakeFiles/bp_manager_test.dir/build
-.PHONY : bp_manager_test/fast
-
-#=============================================================================
-# Target rules for targets named bplus_tree_test
-
-# Build rule for target.
-bplus_tree_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bplus_tree_test
-.PHONY : bplus_tree_test
-
-# fast build rule for target.
-bplus_tree_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/bplus_tree_test.dir/build.make unitest/CMakeFiles/bplus_tree_test.dir/build
-.PHONY : bplus_tree_test/fast
-
-#=============================================================================
-# Target rules for targets named log_test
-
-# Build rule for target.
-log_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 log_test
-.PHONY : log_test
-
-# fast build rule for target.
-log_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/log_test.dir/build.make unitest/CMakeFiles/log_test.dir/build
-.PHONY : log_test/fast
-
-#=============================================================================
-# Target rules for targets named md5_test
-
-# Build rule for target.
-md5_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 md5_test
-.PHONY : md5_test
-
-# fast build rule for target.
-md5_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/md5_test.dir/build.make unitest/CMakeFiles/md5_test.dir/build
-.PHONY : md5_test/fast
-
-#=============================================================================
-# Target rules for targets named mem_pool_test
-
-# Build rule for target.
-mem_pool_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mem_pool_test
-.PHONY : mem_pool_test
-
-# fast build rule for target.
-mem_pool_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/mem_pool_test.dir/build.make unitest/CMakeFiles/mem_pool_test.dir/build
-.PHONY : mem_pool_test/fast
-
-#=============================================================================
-# Target rules for targets named path_test
-
-# Build rule for target.
-path_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 path_test
-.PHONY : path_test
-
-# fast build rule for target.
-path_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/path_test.dir/build.make unitest/CMakeFiles/path_test.dir/build
-.PHONY : path_test/fast
-
-#=============================================================================
-# Target rules for targets named pidfile_test
-
-# Build rule for target.
-pidfile_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pidfile_test
-.PHONY : pidfile_test
-
-# fast build rule for target.
-pidfile_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/pidfile_test.dir/build.make unitest/CMakeFiles/pidfile_test.dir/build
-.PHONY : pidfile_test/fast
-
-#=============================================================================
-# Target rules for targets named rc_test
-
-# Build rule for target.
-rc_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rc_test
-.PHONY : rc_test
-
-# fast build rule for target.
-rc_test/fast:
-	$(MAKE) $(MAKESILENT) -f unitest/CMakeFiles/rc_test.dir/build.make unitest/CMakeFiles/rc_test.dir/build
-.PHONY : rc_test/fast
-
-#=============================================================================
-# Target rules for targets named client_performance_test
-
-# Build rule for target.
-client_performance_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client_performance_test
-.PHONY : client_performance_test
-
-# fast build rule for target.
-client_performance_test/fast:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/client_performance_test.dir/build.make test/CMakeFiles/client_performance_test.dir/build
-.PHONY : client_performance_test/fast
+# target to generate assembly for a file
+structure.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/structure.cpp.s
+.PHONY : structure.cpp.s
 
 # Help Target
 help:
@@ -441,32 +208,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... uninstall"
-	@echo "... bitmap_test"
-	@echo "... bp_manager_test"
-	@echo "... bplus_tree_test"
-	@echo "... client_performance_test"
-	@echo "... common"
-	@echo "... common_static"
-	@echo "... event_core_static"
-	@echo "... event_extra_static"
-	@echo "... event_pthreads_static"
-	@echo "... event_static"
-	@echo "... jsoncpp_static"
-	@echo "... log_test"
-	@echo "... md5_test"
-	@echo "... mem_pool_test"
-	@echo "... obclient"
-	@echo "... observer"
-	@echo "... observer_static"
-	@echo "... path_test"
-	@echo "... pidfile_test"
-	@echo "... rc_test"
+	@echo "... ccLock"
+	@echo "... cc_lock.o"
+	@echo "... cc_lock.i"
+	@echo "... cc_lock.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... structure.o"
+	@echo "... structure.i"
+	@echo "... structure.s"
 .PHONY : help
 
 
