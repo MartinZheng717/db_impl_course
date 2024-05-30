@@ -1,191 +1,201 @@
 #include<iostream>
 #include<string>
+#include<queue>
 #include<vector>
-#include"cc_lock.h"
-#include"global.h"
-#include"structure.h"
+#include<thread>
+#include<ctime>
+// #include<Windows.h>
+#include<unistd.h>
+#include"cc_occ.h"
+#include"cc_occ.h"
+#include"data_occ.h"
 
 using namespace std;
 
-struct Lock {
-	string key;
-	lock_t type;
-	Lock(string k, lock_t t) {
-		key = k;
-		type = t;
-	}
-};
-
 void initial_data(Engine& engine, vector<int> &datalist);
-RC transaction1(cc_lock& ccLock);
-RC transaction2(cc_lock& ccLock);
-RC transaction3(cc_lock& ccLock);
-RC transaction4(cc_lock& ccLock);
-RC release_lock(cc_lock& ccLock, vector<Lock> getLockList, thread::id tid);
+
+RC do_transaction1(cc_occ& ccOCC);
+RC do_transaction2(cc_occ& ccOCC);
+RC do_transaction3(cc_occ& ccOCC);
+RC transaction1(cc_occ& ccOCC);
+RC transaction2(cc_occ& ccOCC);
+RC transaction3(cc_occ& ccOCC);
+
+time_t get_ts();
 
 vector<int> datalist;
+mutex latch;
 
 int main() {
-	cc_lock ccLock= cc_lock();
-	vector<std::thread> threads;
+  cc_occ ccOCC = cc_occ();
+  vector<std::thread> threads;
 
-	//³õÊ¼»¯Êý¾Ý
-	initial_data(ccLock.engine, datalist);
+  //initial data_map
+  initial_data(ccOCC.engine, datalist);
 
-	//¿ªÆô¶à¸öÏß³Ì£¬Ä£Äâ²¢·¢ÊÂÎñ
-	for (int i = 0; i < 12; i++) {
-		int j = i % 4;
-		if (j == 0) {
-			threads.push_back(std::thread(transaction1, std::ref(ccLock)));
-		}
-		else if (j == 1) {
-			threads.push_back(std::thread(transaction2, std::ref(ccLock)));
-		}
-		else if (j == 2) {
-			threads.push_back(std::thread(transaction3, std::ref(ccLock)));
-		}
-		else if (j == 3) {
-			threads.push_back(std::thread(transaction4, std::ref(ccLock)));
-		}
-	}
-	for (auto& th : threads) {
-		th.join();
-	}
+  for (int i = 0; i < 9; i++) {
+    int j = i % 3;
+    if (j == 0) {
+      threads.push_back(std::thread(do_transaction1, std::ref(ccOCC)));
+    }
+    else if (j == 1) {
+      threads.push_back(std::thread(do_transaction2, std::ref(ccOCC)));
+    }
+    else if (j == 2) {
+      threads.push_back(std::thread(do_transaction3, std::ref(ccOCC)));
+    }
+  }
+  for (auto& th : threads) {
+    th.join();
+  }
 
-	for (int i = 0; i < datalist.size(); i++) {
-		auto find = ccLock.engine.data_map.find(to_string(datalist[i]));
-		if (find->second.deleted) {
-			cout << "Key: " << i << "   has been deleted "  << endl;
-		} else
-			cout << "Key: " << i << "   Value: " << find->second.value << endl;
-	}
-	return 0;
+  for (int i = 0; i < datalist.size(); i++) {
+    auto find = ccOCC.engine.data_map.find(to_string(datalist[i]));
+    if (find->second.deleted) {
+      cout << "Key: " << i << "   has been deleted "  << endl;
+    }
+    cout << "Key: " << i << "   Value: " << find->second.value << endl;
+  }
+  return 0;
 }
 
 void initial_data(Engine& engine, vector<int> &datalist) {
-	for (int i = 0; i < 6; i++) {
-		Data data;
-		data.deleted = false;
-		data.owner.type=LOCK_NONE;
-		data.timestamp = 0;
-		data.value = i+10;
-
-		engine.data_map[to_string(i)] = data;
-		datalist.push_back(i);
-	}
+  for (int i = 0; i < 6; i++) {
+    Data data = Data();
+    data.value = i + 100;
+    engine.data_map[to_string(i)] = data;
+    datalist.push_back(i);
+  }
 }
 
-RC release_lock(cc_lock& ccLock, vector<Lock> getLockList, thread::id tid) {
-	RC rc = RCOK;
-	for (int i = 0; i < getLockList.size(); i++) {
-		auto find = ccLock.engine.data_map.find(getLockList[i].key);
-		rc = ccLock.lock_release(getLockList[i].type, tid, find->second);
-	}
-	return rc;
+RC do_transaction1(cc_occ& ccOCC) {
+  RC rc = RCOK;
+  rc = transaction1(ccOCC);
+  if (rc == ABORT)
+    cout << "thread: " << this_thread::get_id() << " do txn1 is abort" << endl;
+  while (rc != RCOK) {
+    rc = transaction1(ccOCC);
+  }
+  return rc;
 }
 
-RC transaction1(cc_lock& ccLock) {
-	RC rc = RCOK;
-	std::thread::id tid;
-	tid = this_thread::get_id();
-	vector<Lock> getLockList;
-	int k1 = 0, k2 = 2;
-	int v1, v2;
-	rc = ccLock.get(to_string(k1), v1, tid);
-	rc = ccLock.get(to_string(k2), v2, tid);
-	if (v1 >= 2) {
-		rc = ccLock.update(to_string(k1), v1 - 2, tid);
-		if (rc != NOT_FOUND) {
-			Lock lock1 = Lock(to_string(k1), LOCK_EX);
-			getLockList.push_back(lock1);
-		}
-
-		rc = ccLock.update(to_string(k2), v2 + 2, tid);
-		if (rc != NOT_FOUND) {
-			Lock lock2 = Lock(to_string(k2), LOCK_EX);
-			getLockList.push_back(lock2);
-		}
-	}
-	rc = release_lock(ccLock, getLockList, tid);
-	return rc;
+RC do_transaction2(cc_occ& ccOCC) {
+  RC rc = RCOK;
+  rc = transaction2(ccOCC);
+  if (rc == ABORT)
+    cout << "thread: " << this_thread::get_id() << " do txn2 is abort" << endl;
+  while (rc != RCOK) {
+    rc = transaction2(ccOCC);
+  }
+  return rc;
 }
 
-RC transaction2(cc_lock& ccLock) {
-	RC rc = RCOK;
-	std::thread::id tid;
-	tid = this_thread::get_id();
-	vector<Lock> getLockList;
-	int k1 = 2, k2 = 4;
-	int v1, v2;
-	rc = ccLock.get(to_string(k1), v1, tid);
-	rc = ccLock.get(to_string(k2), v2, tid);
-	if (v1 >= 1) {
-		rc = ccLock.update(to_string(k1), v1 - 1, tid);
-		if (rc != NOT_FOUND) {
-			Lock lock1 = Lock(to_string(k1), LOCK_EX);
-			getLockList.push_back(lock1);
-		}
-
-		rc = ccLock.update(to_string(k2), v2 + 1, tid);
-		if (rc != NOT_FOUND) {
-			Lock lock2 = Lock(to_string(k2), LOCK_EX);
-			getLockList.push_back(lock2);
-		}
-	}
-	rc = release_lock(ccLock, getLockList, tid);
-	return rc;
+RC do_transaction3(cc_occ& ccOCC) {
+  RC rc = RCOK;
+  rc = transaction3(ccOCC);
+  if (rc == ABORT)
+    cout << "thread: " << this_thread::get_id() << " do txn3 is abort" << endl;
+  while (rc != RCOK) {
+    rc = transaction3(ccOCC);
+  }
+  return rc;
 }
 
-RC transaction3(cc_lock& ccLock) {
-	RC rc = RCOK;
-	std::thread::id tid;
-	tid = this_thread::get_id();
-	vector<Lock> getLockList;
-	int k1 = 1, k2 = 3, k3=5;
-	int v1, v2, v3;
-	rc = ccLock.get(to_string(k1), v1, tid);
-	rc = ccLock.get(to_string(k2), v2, tid);
-	rc = ccLock.get(to_string(k3), v3, tid);
-
-	rc = ccLock.update(to_string(k1), v1 * 2, tid);
-	if (rc != NOT_FOUND) {
-		Lock lock1 = Lock(to_string(k1), LOCK_EX);
-		getLockList.push_back(lock1);
-	}
-
-	rc = ccLock.update(to_string(k2), v2 + 5, tid);
-	if (rc != NOT_FOUND) {
-		Lock lock2 = Lock(to_string(k2), LOCK_EX);
-		getLockList.push_back(lock2);
-	}
-
-	rc = ccLock.update(to_string(k3), v3 + 10, tid);
-	if (rc != NOT_FOUND) {
-		Lock lock3 = Lock(to_string(k3), LOCK_EX);
-		getLockList.push_back(lock3);
-	}
-	
-	rc = release_lock(ccLock, getLockList, tid);
-	return rc;
+//æ›´æ–°æ•°æ®0å’Œ2
+RC transaction1(cc_occ& ccOCC) {
+  RC rc = RCOK;
+  txn_man * txn = new txn_man();
+  thread::id tid = this_thread::get_id();
+  time_t start_ts = get_ts();
+  txn->tid = tid;
+  txn->start_ts = start_ts;
+  int k1 = 0, k2 = 2;
+  int v1, v2;
+  rc = ccOCC.get(to_string(k1), v1, txn);
+  if (rc != RCOK)
+    return rc;
+  rc = ccOCC.get(to_string(k2), v2, txn);
+  if (rc != RCOK)
+    return rc;
+  if (v1 >= 2) {
+    rc = ccOCC.update(to_string(k1), v1 - 2, txn);
+    if (rc != RCOK)
+      return rc;
+    rc = ccOCC.update(to_string(k2), v2 + 2, txn);
+    if (rc != RCOK)
+      return rc;
+  }
+  rc = ccOCC.commit(txn);
+  cout <<"txn1:"<< txn->tid << "  s:  " << txn->start_ts << "  e:  " << txn->end_ts << "  c:  " << txn->commit_ts << "  his_len: " << ccOCC.occ_man.his_len << endl;
+  return rc;
 }
 
-RC transaction4(cc_lock& ccLock) {
-	RC rc = RCOK;
-	std::thread::id tid;
-	tid = this_thread::get_id();
-	vector<Lock> getLockList;
+//æ›´æ–°æ•°æ®0å’Œ4
+RC transaction2(cc_occ& ccOCC){
+  RC rc = RCOK;
+  txn_man * txn = new txn_man();
+  thread::id tid = this_thread::get_id();
+  time_t start_ts = get_ts();
+  txn->tid = tid;
+  txn->start_ts = start_ts;
+  int k1 = 0, k2 = 4;
+  int v1, v2;
+  rc = ccOCC.get(to_string(k1), v1, txn);
+  if (rc != RCOK)
+    return rc;
+  rc = ccOCC.get(to_string(k2), v2, txn);
+  if (rc != RCOK)
+    return rc;
+  if (v1 >= 2) {
+    rc = ccOCC.update(to_string(k1), v1 - 2, txn);
+    if (rc != RCOK)
+      return rc;
+    rc = ccOCC.update(to_string(k2), v2 + 2, txn);
+    if (rc != RCOK)
+      return rc;
+  }
+  rc = ccOCC.commit(txn);
+  cout <<"txn2:"<< txn->tid << "  s:  " << txn->start_ts << "  e:  " << txn->end_ts << "  c:  " << txn->commit_ts << "  his_len: " << ccOCC.occ_man.his_len << endl;
+  return rc;
+}
 
-	rc = ccLock.insert("6", 20, tid);
-	if (rc != ALREADY_EXIST) {
-		datalist.push_back(6);
-	}
+//æ›´æ–°æ•°æ®1ï¼Œ3ï¼Œ5
+RC transaction3(cc_occ& ccOCC){
+  RC rc = RCOK;
+  txn_man * txn = new txn_man();
+  thread::id tid = this_thread::get_id();
+  time_t start_ts = get_ts();
+  txn->tid = tid;
+  txn->start_ts = start_ts;
+  int k1 = 1, k2 = 3, k3 = 5;
+  int v1, v2, v3;
+  rc = ccOCC.get(to_string(k1), v1, txn);
+  if (rc != RCOK)
+    return rc;
+  rc = ccOCC.get(to_string(k2), v2, txn);
+  if (rc != RCOK)
+    return rc;
+  rc = ccOCC.get(to_string(k3), v3, txn);
+  if (rc != RCOK)
+    return rc;
+  rc = ccOCC.update(to_string(k1), v1 * 2, txn);
+  if (rc != RCOK)
+    return rc;
+  rc = ccOCC.update(to_string(k2), v2 + 5, txn);
+  if (rc != RCOK)
+    return rc;
+  rc = ccOCC.update(to_string(k3), v3 + 10, txn);
+  if (rc != RCOK)
+    return rc;
+  rc = ccOCC.commit(txn);
+  cout <<"txn3:"<< txn->tid << "  s:  " << txn->start_ts << "  e:  " << txn->end_ts << "  c:  " << txn->commit_ts <<"  his_len: "<<ccOCC.occ_man.his_len<< endl;
+  return rc;
+}
 
-	rc = ccLock.delete_("5", tid);
-	if (rc != NOT_FOUND) {
-		Lock lock1 = Lock("5", LOCK_EX);
-		getLockList.push_back(lock1);
-	}
-
-	rc = release_lock(ccLock, getLockList, tid);
-	return rc;
+time_t get_ts() {
+  latch.lock();
+  time_t ts = time(0);
+  sleep(1);
+  latch.unlock();
+  return ts;
 }

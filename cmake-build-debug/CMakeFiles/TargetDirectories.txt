@@ -1,3 +1,0 @@
-/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/ccLock.dir
-/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/rebuild_cache.dir

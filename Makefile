@@ -117,48 +117,72 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ccLock
+# Target rules for targets named cc_occ
 
 # Build rule for target.
-ccLock: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ccLock
-.PHONY : ccLock
+cc_occ: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cc_occ
+.PHONY : cc_occ
 
 # fast build rule for target.
-ccLock/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/build
-.PHONY : ccLock/fast
+cc_occ/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/build
+.PHONY : cc_occ/fast
 
-cc_lock.o: cc_lock.cpp.o
-.PHONY : cc_lock.o
+cc_occ.o: cc_occ.cpp.o
+.PHONY : cc_occ.o
 
 # target to build an object file
-cc_lock.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/cc_lock.cpp.o
-.PHONY : cc_lock.cpp.o
+cc_occ.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/cc_occ.cpp.o
+.PHONY : cc_occ.cpp.o
 
-cc_lock.i: cc_lock.cpp.i
-.PHONY : cc_lock.i
+cc_occ.i: cc_occ.cpp.i
+.PHONY : cc_occ.i
 
 # target to preprocess a source file
-cc_lock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/cc_lock.cpp.i
-.PHONY : cc_lock.cpp.i
+cc_occ.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/cc_occ.cpp.i
+.PHONY : cc_occ.cpp.i
 
-cc_lock.s: cc_lock.cpp.s
-.PHONY : cc_lock.s
+cc_occ.s: cc_occ.cpp.s
+.PHONY : cc_occ.s
 
 # target to generate assembly for a file
-cc_lock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/cc_lock.cpp.s
-.PHONY : cc_lock.cpp.s
+cc_occ.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/cc_occ.cpp.s
+.PHONY : cc_occ.cpp.s
+
+data_occ.o: data_occ.cpp.o
+.PHONY : data_occ.o
+
+# target to build an object file
+data_occ.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/data_occ.cpp.o
+.PHONY : data_occ.cpp.o
+
+data_occ.i: data_occ.cpp.i
+.PHONY : data_occ.i
+
+# target to preprocess a source file
+data_occ.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/data_occ.cpp.i
+.PHONY : data_occ.cpp.i
+
+data_occ.s: data_occ.cpp.s
+.PHONY : data_occ.s
+
+# target to generate assembly for a file
+data_occ.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/data_occ.cpp.s
+.PHONY : data_occ.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -166,7 +190,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -174,32 +198,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cc_occ.dir/build.make CMakeFiles/cc_occ.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-structure.o: structure.cpp.o
-.PHONY : structure.o
-
-# target to build an object file
-structure.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/structure.cpp.o
-.PHONY : structure.cpp.o
-
-structure.i: structure.cpp.i
-.PHONY : structure.i
-
-# target to preprocess a source file
-structure.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/structure.cpp.i
-.PHONY : structure.cpp.i
-
-structure.s: structure.cpp.s
-.PHONY : structure.s
-
-# target to generate assembly for a file
-structure.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ccLock.dir/build.make CMakeFiles/ccLock.dir/structure.cpp.s
-.PHONY : structure.cpp.s
 
 # Help Target
 help:
@@ -209,16 +209,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ccLock"
-	@echo "... cc_lock.o"
-	@echo "... cc_lock.i"
-	@echo "... cc_lock.s"
+	@echo "... cc_occ"
+	@echo "... cc_occ.o"
+	@echo "... cc_occ.i"
+	@echo "... cc_occ.s"
+	@echo "... data_occ.o"
+	@echo "... data_occ.i"
+	@echo "... data_occ.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... structure.o"
-	@echo "... structure.i"
-	@echo "... structure.s"
 .PHONY : help
 
 
