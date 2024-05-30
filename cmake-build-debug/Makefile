@@ -87,7 +87,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"dev\" \"lib\" \"runtime\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -225,6 +225,84 @@ observer_static: cmake_check_build_system
 observer_static/fast:
 	$(MAKE) $(MAKESILENT) -f src/observer/CMakeFiles/observer_static.dir/build.make src/observer/CMakeFiles/observer_static.dir/build
 .PHONY : observer_static/fast
+
+#=============================================================================
+# Target rules for targets named event_core_static
+
+# Build rule for target.
+event_core_static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_core_static
+.PHONY : event_core_static
+
+# fast build rule for target.
+event_core_static/fast:
+	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/event_core_static.dir/build.make libevent/CMakeFiles/event_core_static.dir/build
+.PHONY : event_core_static/fast
+
+#=============================================================================
+# Target rules for targets named event_extra_static
+
+# Build rule for target.
+event_extra_static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_extra_static
+.PHONY : event_extra_static
+
+# fast build rule for target.
+event_extra_static/fast:
+	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/event_extra_static.dir/build.make libevent/CMakeFiles/event_extra_static.dir/build
+.PHONY : event_extra_static/fast
+
+#=============================================================================
+# Target rules for targets named event_pthreads_static
+
+# Build rule for target.
+event_pthreads_static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_pthreads_static
+.PHONY : event_pthreads_static
+
+# fast build rule for target.
+event_pthreads_static/fast:
+	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/event_pthreads_static.dir/build.make libevent/CMakeFiles/event_pthreads_static.dir/build
+.PHONY : event_pthreads_static/fast
+
+#=============================================================================
+# Target rules for targets named event_static
+
+# Build rule for target.
+event_static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_static
+.PHONY : event_static
+
+# fast build rule for target.
+event_static/fast:
+	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/event_static.dir/build.make libevent/CMakeFiles/event_static.dir/build
+.PHONY : event_static/fast
+
+#=============================================================================
+# Target rules for targets named uninstall
+
+# Build rule for target.
+uninstall: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uninstall
+.PHONY : uninstall
+
+# fast build rule for target.
+uninstall/fast:
+	$(MAKE) $(MAKESILENT) -f libevent/CMakeFiles/uninstall.dir/build.make libevent/CMakeFiles/uninstall.dir/build
+.PHONY : uninstall/fast
+
+#=============================================================================
+# Target rules for targets named jsoncpp_static
+
+# Build rule for target.
+jsoncpp_static: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 jsoncpp_static
+.PHONY : jsoncpp_static
+
+# fast build rule for target.
+jsoncpp_static/fast:
+	$(MAKE) $(MAKESILENT) -f jsoncpp/src/lib_json/CMakeFiles/jsoncpp_static.dir/build.make jsoncpp/src/lib_json/CMakeFiles/jsoncpp_static.dir/build
+.PHONY : jsoncpp_static/fast
 
 #=============================================================================
 # Target rules for targets named bitmap_test
@@ -368,12 +446,18 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... uninstall"
 	@echo "... bitmap_test"
 	@echo "... bp_manager_test"
 	@echo "... bplus_tree_test"
 	@echo "... client_performance_test"
 	@echo "... common"
 	@echo "... common_static"
+	@echo "... event_core_static"
+	@echo "... event_extra_static"
+	@echo "... event_pthreads_static"
+	@echo "... event_static"
+	@echo "... jsoncpp_static"
 	@echo "... log_test"
 	@echo "... md5_test"
 	@echo "... mem_pool_test"

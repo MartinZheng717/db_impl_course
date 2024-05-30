@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "../../bin/libobserver.pdb"
   "../../lib/libobserver.a"
-  "../../lib/libobserver.pdb"
   "CMakeFiles/observer_static.dir/event/execution_plan_event.cpp.o"
   "CMakeFiles/observer_static.dir/event/execution_plan_event.cpp.o.d"
   "CMakeFiles/observer_static.dir/event/session_event.cpp.o"

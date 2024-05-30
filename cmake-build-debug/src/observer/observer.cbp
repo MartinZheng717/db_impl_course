@@ -5,7 +5,7 @@
 		<Option title="observer"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\deps\;CMake Files\deps\common\;CMake Files\src\;CMake Files\src\obclient\;CMake Files\src\observer\;CMake Files\unitest\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\lib\;CMake Files\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\usr\local\lib\cmake\GTest\;CMake Files\test\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\deps\;CMake Files\deps\common\;CMake Files\deps\jsoncpp\;CMake Files\deps\jsoncpp\include\;CMake Files\deps\jsoncpp\cmake\;CMake Files\deps\jsoncpp\pkg-config\;CMake Files\deps\jsoncpp\src\;CMake Files\deps\jsoncpp\src\lib_json\;CMake Files\deps\libevent\;CMake Files\deps\libevent\cmake\;CMake Files\src\;CMake Files\src\obclient\;CMake Files\src\observer\;CMake Files\unitest\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\usr\;CMake Files\..\..\..\usr\local\;CMake Files\..\..\..\usr\local\lib\;CMake Files\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\usr\local\lib\cmake\GTest\;CMake Files\test\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/src/observer"/>
@@ -19,7 +19,7 @@
 			</Target>
 			<Target title="observer">
 				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/bin/observer" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/src/observer/../../bin"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -29,6 +29,10 @@
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/../../include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/include/json"/>
 					<Add directory="/usr/include/c++/11"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
 					<Add directory="/usr/include/c++/11/backward"/>
@@ -46,7 +50,7 @@
 			</Target>
 			<Target title="observer/fast">
 				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/bin/observer" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/src/observer/../../bin"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -56,6 +60,10 @@
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/../../include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/include/json"/>
 					<Add directory="/usr/include/c++/11"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
 					<Add directory="/usr/include/c++/11/backward"/>
@@ -83,6 +91,10 @@
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/../../include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/include/json"/>
 					<Add directory="/usr/include/c++/11"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
 					<Add directory="/usr/include/c++/11/backward"/>
@@ -110,6 +122,10 @@
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
 					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/../../include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/include/json"/>
 					<Add directory="/usr/include/c++/11"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
 					<Add directory="/usr/include/c++/11/backward"/>
@@ -125,7 +141,475 @@
 					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/src/observer/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="event_core_static">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/lib/libevent_core.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-D_GNU_SOURCE=1"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/compat"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 event_core_static"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="event_core_static/fast">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/lib/libevent_core.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-D_GNU_SOURCE=1"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/compat"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 event_core_static/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="event_extra_static">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/lib/libevent_extra.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-D_GNU_SOURCE=1"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/compat"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 event_extra_static"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="event_extra_static/fast">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/lib/libevent_extra.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-D_GNU_SOURCE=1"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/compat"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 event_extra_static/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="event_pthreads_static">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/lib/libevent_pthreads.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-D_GNU_SOURCE=1"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/compat"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 event_pthreads_static"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="event_pthreads_static/fast">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/lib/libevent_pthreads.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-D_GNU_SOURCE=1"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/compat"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 event_pthreads_static/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="event_static">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/lib/libevent.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-D_GNU_SOURCE=1"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/compat"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 event_static"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="event_static/fast">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/lib/libevent.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add option="-D_GNU_SOURCE=1"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent/compat"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/libevent"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 event_static/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uninstall">
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 uninstall"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="jsoncpp_static">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/lib/libjsoncpp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/../../include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/include/json"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json/Makefile&quot;  VERBOSE=1 jsoncpp_static"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="jsoncpp_static/fast">
+				<Option output="/home/zhengzhiwei/db_impl_course/cmake-build-debug/lib/libjsoncpp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUNIX"/>
+					<Add option="-DLINUX"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/."/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/src/observer/../../deps"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/../../include"/>
+					<Add directory="/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/include/json"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json/Makefile&quot;  VERBOSE=1 jsoncpp_static/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/src/lib_json/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/json/assertions.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/json/config.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/json/forwards.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/json/json_features.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/json/reader.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/json/value.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/json/version.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/json/writer.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/json_reader.cpp">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/json_tool.h">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/json_value.cpp">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/json_valueiterator.inl">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/json_writer.cpp">
+			<Option target="jsoncpp_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/buffer.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/bufferevent.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/bufferevent_filter.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/bufferevent_pair.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/bufferevent_ratelim.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/bufferevent_sock.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/epoll.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evdns.c">
+			<Option target="event_extra_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/event.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/event_tagging.c">
+			<Option target="event_extra_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evmap.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evrpc.c">
+			<Option target="event_extra_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evthread.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evthread_pthread.c">
+			<Option target="event_pthreads_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evutil.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evutil_rand.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evutil_time.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/http.c">
+			<Option target="event_extra_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/listener.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/log.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/poll.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/select.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/signal.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/strlcpy.c">
+			<Option target="event_core_static"/>
+			<Option target="event_static"/>
+		</Unit>
 		<Unit filename="/home/zhengzhiwei/db_impl_course/src/observer/event/execution_plan_event.cpp">
 			<Option target="observer"/>
 			<Option target="observer_static"/>
@@ -433,6 +917,93 @@
 		</Unit>
 		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/common/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\deps\common\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/jsoncppConfig.cmake.in">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/version.in">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\include\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/PreventInBuildInstalls.cmake">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\include\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/include/PreventInSourceBuilds.cmake">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\include\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/cmake/JoinPaths.cmake">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/pkg-config/jsoncpp.pc.in">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\pkg-config\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\src\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\deps\jsoncpp\src\lib_json\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\deps\libevent\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/evconfig-private.h.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/event-config.h.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/libevent.pc.in">
+			<Option virtualFolder="CMake Files\deps\libevent\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/libevent_core.pc.in">
+			<Option virtualFolder="CMake Files\deps\libevent\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/libevent_extra.pc.in">
+			<Option virtualFolder="CMake Files\deps\libevent\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/libevent_pthreads.pc.in">
+			<Option virtualFolder="CMake Files\deps\libevent\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/AddCompilerFlags.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/AddEventLibrary.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/CheckConstExists.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/CheckFileOffsetBits.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/CheckFunctionKeywords.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/CheckPrototypeDefinition.c.in">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/CheckPrototypeDefinition.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/LibeventConfig.cmake.in">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/LibeventConfigVersion.cmake.in">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/Macros.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/Uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
+		</Unit>
+		<Unit filename="/home/zhengzhiwei/db_impl_course/deps/libevent/cmake/VersionViaGit.cmake">
+			<Option virtualFolder="CMake Files\deps\libevent\cmake\"/>
 		</Unit>
 		<Unit filename="/home/zhengzhiwei/db_impl_course/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\"/>

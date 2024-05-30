@@ -94,6 +94,9 @@ bin/client_performance_test: test/CMakeFiles/client_performance_test.dir/client_
 bin/client_performance_test: test/CMakeFiles/client_performance_test.dir/build.make
 bin/client_performance_test: lib/libobserver.a
 bin/client_performance_test: lib/libcommon.so.1.0.0
+bin/client_performance_test: libevent/lib/libevent.a
+bin/client_performance_test: libevent/lib/libevent_core.a
+bin/client_performance_test: lib/libjsoncpp.a
 bin/client_performance_test: test/CMakeFiles/client_performance_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/client_performance_test"
 	cd /home/zhengzhiwei/db_impl_course/cmake-build-debug/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client_performance_test.dir/link.txt --verbose=$(VERBOSE)

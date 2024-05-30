@@ -1,0 +1,1145 @@
+Determining if files fcntl.h;inttypes.h;memory.h;signal.h;stdarg.h;stddef.h;stdint.h;stdlib.h;string.h;errno.h;unistd.h;time.h;sys/types.h;sys/stat.h;sys/time.h;sys/param.h;netdb.h;dlfcn.h;arpa/inet.h;poll.h;port.h exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0Yp1LH
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9e3fc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9e3fc.dir/build.make CMakeFiles/cmTC_9e3fc.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0Yp1LH'
+Building C object CMakeFiles/cmTC_9e3fc.dir/EVENT__HAVE_PORT_H.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_9e3fc.dir/EVENT__HAVE_PORT_H.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0Yp1LH/EVENT__HAVE_PORT_H.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0Yp1LH/EVENT__HAVE_PORT_H.c:22:10:[m[K [01;31m[Kfatal error: [m[Kport.h: No such file or directory
+   22 | #include [01;31m[K<port.h>[m[K
+      |          [01;31m[K^~~~~~~~[m[K
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_9e3fc.dir/build.make:78: CMakeFiles/cmTC_9e3fc.dir/EVENT__HAVE_PORT_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-0Yp1LH'
+gmake: *** [Makefile:127: cmTC_9e3fc/fast] Error 2
+
+
+Source:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <port.h>
+
+
+int main(void){return 0;}
+
+Determining if files fcntl.h;inttypes.h;memory.h;signal.h;stdarg.h;stddef.h;stdint.h;stdlib.h;string.h;errno.h;unistd.h;time.h;sys/types.h;sys/stat.h;sys/time.h;sys/param.h;netdb.h;dlfcn.h;arpa/inet.h;poll.h;sys/socket.h;sys/random.h;sys/un.h;sys/devpoll.h exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-p6QPJK
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7d1ee/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7d1ee.dir/build.make CMakeFiles/cmTC_7d1ee.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-p6QPJK'
+Building C object CMakeFiles/cmTC_7d1ee.dir/EVENT__HAVE_SYS_DEVPOLL_H.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_7d1ee.dir/EVENT__HAVE_SYS_DEVPOLL_H.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-p6QPJK/EVENT__HAVE_SYS_DEVPOLL_H.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-p6QPJK/EVENT__HAVE_SYS_DEVPOLL_H.c:25:10:[m[K [01;31m[Kfatal error: [m[Ksys/devpoll.h: No such file or directory
+   25 | #include [01;31m[K<sys/devpoll.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_7d1ee.dir/build.make:78: CMakeFiles/cmTC_7d1ee.dir/EVENT__HAVE_SYS_DEVPOLL_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-p6QPJK'
+gmake: *** [Makefile:127: cmTC_7d1ee/fast] Error 2
+
+
+Source:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/devpoll.h>
+
+
+int main(void){return 0;}
+
+Determining if files fcntl.h;inttypes.h;memory.h;signal.h;stdarg.h;stddef.h;stdint.h;stdlib.h;string.h;errno.h;unistd.h;time.h;sys/types.h;sys/stat.h;sys/time.h;sys/param.h;netdb.h;dlfcn.h;arpa/inet.h;poll.h;sys/socket.h;sys/random.h;sys/un.h;sys/epoll.h;sys/eventfd.h;sys/event.h exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WtsUIL
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a1afa/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a1afa.dir/build.make CMakeFiles/cmTC_a1afa.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WtsUIL'
+Building C object CMakeFiles/cmTC_a1afa.dir/EVENT__HAVE_SYS_EVENT_H.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_a1afa.dir/EVENT__HAVE_SYS_EVENT_H.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WtsUIL/EVENT__HAVE_SYS_EVENT_H.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WtsUIL/EVENT__HAVE_SYS_EVENT_H.c:27:10:[m[K [01;31m[Kfatal error: [m[Ksys/event.h: No such file or directory
+   27 | #include [01;31m[K<sys/event.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_a1afa.dir/build.make:78: CMakeFiles/cmTC_a1afa.dir/EVENT__HAVE_SYS_EVENT_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WtsUIL'
+gmake: *** [Makefile:127: cmTC_a1afa/fast] Error 2
+
+
+Source:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/event.h>
+
+
+int main(void){return 0;}
+
+Determining if files fcntl.h;inttypes.h;memory.h;signal.h;stdarg.h;stddef.h;stdint.h;stdlib.h;string.h;errno.h;unistd.h;time.h;sys/types.h;sys/stat.h;sys/time.h;sys/param.h;netdb.h;dlfcn.h;arpa/inet.h;poll.h;sys/socket.h;sys/random.h;sys/un.h;sys/epoll.h;sys/eventfd.h;sys/ioctl.h;sys/mman.h;sys/queue.h;sys/select.h;sys/sendfile.h;sys/uio.h;sys/wait.h;sys/resource.h;sys/timerfd.h;netinet/in.h;netinet/in6.h exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hmpvF5
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1f971/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1f971.dir/build.make CMakeFiles/cmTC_1f971.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hmpvF5'
+Building C object CMakeFiles/cmTC_1f971.dir/EVENT__HAVE_NETINET_IN6_H.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_1f971.dir/EVENT__HAVE_NETINET_IN6_H.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hmpvF5/EVENT__HAVE_NETINET_IN6_H.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hmpvF5/EVENT__HAVE_NETINET_IN6_H.c:37:10:[m[K [01;31m[Kfatal error: [m[Knetinet/in6.h: No such file or directory
+   37 | #include [01;31m[K<netinet/in6.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_1f971.dir/build.make:78: CMakeFiles/cmTC_1f971.dir/EVENT__HAVE_NETINET_IN6_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hmpvF5'
+gmake: *** [Makefile:127: cmTC_1f971/fast] Error 2
+
+
+Source:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/in6.h>
+
+
+int main(void){return 0;}
+
+Determining if the strlcpy exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-36hCgf
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_66c70/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_66c70.dir/build.make CMakeFiles/cmTC_66c70.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-36hCgf'
+Building C object CMakeFiles/cmTC_66c70.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_66c70.dir/CheckSymbolExists.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-36hCgf/CheckSymbolExists.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-36hCgf/CheckSymbolExists.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-36hCgf/CheckSymbolExists.c:45:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kstrlcpy[m[K’ undeclared (first use in this function); did you mean ‘[01m[Kstrncpy[m[K’?
+   45 |   return ((int*)(&[01;31m[Kstrlcpy[m[K))[argc];
+      |                   [01;31m[K^~~~~~~[m[K
+      |                   [32m[Kstrncpy[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-36hCgf/CheckSymbolExists.c:45:19:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-36hCgf/CheckSymbolExists.c:41:14:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kargc[m[K’ set but not used [[01;35m[K-Wunused-but-set-parameter[m[K]
+   41 | int main([01;35m[Kint argc[m[K, char** argv)
+      |          [01;35m[K~~~~^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_66c70.dir/build.make:78: CMakeFiles/cmTC_66c70.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-36hCgf'
+gmake: *** [Makefile:127: cmTC_66c70/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <ifaddrs.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcpy
+  return ((int*)(&strlcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the port_create exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fhYKL4
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fd163/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fd163.dir/build.make CMakeFiles/cmTC_fd163.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fhYKL4'
+Building C object CMakeFiles/cmTC_fd163.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_fd163.dir/CheckSymbolExists.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fhYKL4/CheckSymbolExists.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fhYKL4/CheckSymbolExists.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fhYKL4/CheckSymbolExists.c:45:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kport_create[m[K’ undeclared (first use in this function); did you mean ‘[01m[Kepoll_create[m[K’?
+   45 |   return ((int*)(&[01;31m[Kport_create[m[K))[argc];
+      |                   [01;31m[K^~~~~~~~~~~[m[K
+      |                   [32m[Kepoll_create[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fhYKL4/CheckSymbolExists.c:45:19:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fhYKL4/CheckSymbolExists.c:41:14:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kargc[m[K’ set but not used [[01;35m[K-Wunused-but-set-parameter[m[K]
+   41 | int main([01;35m[Kint argc[m[K, char** argv)
+      |          [01;35m[K~~~~^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_fd163.dir/build.make:78: CMakeFiles/cmTC_fd163.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fhYKL4'
+gmake: *** [Makefile:127: cmTC_fd163/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <ifaddrs.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef port_create
+  return ((int*)(&port_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the kqueue exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ZyGyCB
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_20cbb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_20cbb.dir/build.make CMakeFiles/cmTC_20cbb.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ZyGyCB'
+Building C object CMakeFiles/cmTC_20cbb.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_20cbb.dir/CheckSymbolExists.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ZyGyCB/CheckSymbolExists.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ZyGyCB/CheckSymbolExists.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ZyGyCB/CheckSymbolExists.c:45:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kkqueue[m[K’ undeclared (first use in this function); did you mean ‘[01m[Ksigqueue[m[K’?
+   45 |   return ((int*)(&[01;31m[Kkqueue[m[K))[argc];
+      |                   [01;31m[K^~~~~~[m[K
+      |                   [32m[Ksigqueue[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ZyGyCB/CheckSymbolExists.c:45:19:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ZyGyCB/CheckSymbolExists.c:41:14:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kargc[m[K’ set but not used [[01;35m[K-Wunused-but-set-parameter[m[K]
+   41 | int main([01;35m[Kint argc[m[K, char** argv)
+      |          [01;35m[K~~~~^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_20cbb.dir/build.make:78: CMakeFiles/cmTC_20cbb.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ZyGyCB'
+gmake: *** [Makefile:127: cmTC_20cbb/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <ifaddrs.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef kqueue
+  return ((int*)(&kqueue))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the sysctl exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iY0O7h
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_65921/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_65921.dir/build.make CMakeFiles/cmTC_65921.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iY0O7h'
+Building C object CMakeFiles/cmTC_65921.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_65921.dir/CheckSymbolExists.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iY0O7h/CheckSymbolExists.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iY0O7h/CheckSymbolExists.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iY0O7h/CheckSymbolExists.c:45:19:[m[K [01;31m[Kerror: [m[K‘[01m[Ksysctl[m[K’ undeclared (first use in this function); did you mean ‘[01m[Ksyscall[m[K’?
+   45 |   return ((int*)(&[01;31m[Ksysctl[m[K))[argc];
+      |                   [01;31m[K^~~~~~[m[K
+      |                   [32m[Ksyscall[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iY0O7h/CheckSymbolExists.c:45:19:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iY0O7h/CheckSymbolExists.c:41:14:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kargc[m[K’ set but not used [[01;35m[K-Wunused-but-set-parameter[m[K]
+   41 | int main([01;35m[Kint argc[m[K, char** argv)
+      |          [01;35m[K~~~~^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_65921.dir/build.make:78: CMakeFiles/cmTC_65921.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-iY0O7h'
+gmake: *** [Makefile:127: cmTC_65921/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <ifaddrs.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysctl
+  return ((int*)(&sysctl))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the arc4random exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zI3kXK
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c710f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c710f.dir/build.make CMakeFiles/cmTC_c710f.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zI3kXK'
+Building C object CMakeFiles/cmTC_c710f.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_c710f.dir/CheckSymbolExists.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zI3kXK/CheckSymbolExists.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zI3kXK/CheckSymbolExists.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zI3kXK/CheckSymbolExists.c:45:19:[m[K [01;31m[Kerror: [m[K‘[01m[Karc4random[m[K’ undeclared (first use in this function)
+   45 |   return ((int*)(&[01;31m[Karc4random[m[K))[argc];
+      |                   [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zI3kXK/CheckSymbolExists.c:45:19:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zI3kXK/CheckSymbolExists.c:41:14:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kargc[m[K’ set but not used [[01;35m[K-Wunused-but-set-parameter[m[K]
+   41 | int main([01;35m[Kint argc[m[K, char** argv)
+      |          [01;35m[K~~~~^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_c710f.dir/build.make:78: CMakeFiles/cmTC_c710f.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zI3kXK'
+gmake: *** [Makefile:127: cmTC_c710f/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <ifaddrs.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the arc4random_buf exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-PcYplb
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_394ee/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_394ee.dir/build.make CMakeFiles/cmTC_394ee.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-PcYplb'
+Building C object CMakeFiles/cmTC_394ee.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_394ee.dir/CheckSymbolExists.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-PcYplb/CheckSymbolExists.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-PcYplb/CheckSymbolExists.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-PcYplb/CheckSymbolExists.c:45:19:[m[K [01;31m[Kerror: [m[K‘[01m[Karc4random_buf[m[K’ undeclared (first use in this function)
+   45 |   return ((int*)(&[01;31m[Karc4random_buf[m[K))[argc];
+      |                   [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-PcYplb/CheckSymbolExists.c:45:19:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-PcYplb/CheckSymbolExists.c:41:14:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kargc[m[K’ set but not used [[01;35m[K-Wunused-but-set-parameter[m[K]
+   41 | int main([01;35m[Kint argc[m[K, char** argv)
+      |          [01;35m[K~~~~^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_394ee.dir/build.make:78: CMakeFiles/cmTC_394ee.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-PcYplb'
+gmake: *** [Makefile:127: cmTC_394ee/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <ifaddrs.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_buf
+  return ((int*)(&arc4random_buf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the arc4random_addrandom exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rkP1mJ
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_57e14/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_57e14.dir/build.make CMakeFiles/cmTC_57e14.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rkP1mJ'
+Building C object CMakeFiles/cmTC_57e14.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_57e14.dir/CheckSymbolExists.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rkP1mJ/CheckSymbolExists.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rkP1mJ/CheckSymbolExists.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rkP1mJ/CheckSymbolExists.c:45:19:[m[K [01;31m[Kerror: [m[K‘[01m[Karc4random_addrandom[m[K’ undeclared (first use in this function)
+   45 |   return ((int*)(&[01;31m[Karc4random_addrandom[m[K))[argc];
+      |                   [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rkP1mJ/CheckSymbolExists.c:45:19:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rkP1mJ/CheckSymbolExists.c:41:14:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kargc[m[K’ set but not used [[01;35m[K-Wunused-but-set-parameter[m[K]
+   41 | int main([01;35m[Kint argc[m[K, char** argv)
+      |          [01;35m[K~~~~^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_57e14.dir/build.make:78: CMakeFiles/cmTC_57e14.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rkP1mJ'
+gmake: *** [Makefile:127: cmTC_57e14/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <ifaddrs.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_addrandom
+  return ((int*)(&arc4random_addrandom))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the issetugid exist failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pcs6XR
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_34d1f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_34d1f.dir/build.make CMakeFiles/cmTC_34d1f.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pcs6XR'
+Building C object CMakeFiles/cmTC_34d1f.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_34d1f.dir/CheckSymbolExists.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pcs6XR/CheckSymbolExists.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pcs6XR/CheckSymbolExists.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pcs6XR/CheckSymbolExists.c:45:19:[m[K [01;31m[Kerror: [m[K‘[01m[Kissetugid[m[K’ undeclared (first use in this function); did you mean ‘[01m[Ksetegid[m[K’?
+   45 |   return ((int*)(&[01;31m[Kissetugid[m[K))[argc];
+      |                   [01;31m[K^~~~~~~~~[m[K
+      |                   [32m[Ksetegid[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pcs6XR/CheckSymbolExists.c:45:19:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pcs6XR/CheckSymbolExists.c:41:14:[m[K [01;35m[Kwarning: [m[Kparameter ‘[01m[Kargc[m[K’ set but not used [[01;35m[K-Wunused-but-set-parameter[m[K]
+   41 | int main([01;35m[Kint argc[m[K, char** argv)
+      |          [01;35m[K~~~~^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_34d1f.dir/build.make:78: CMakeFiles/cmTC_34d1f.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-pcs6XR'
+gmake: *** [Makefile:127: cmTC_34d1f/fast] Error 2
+
+
+File CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <inttypes.h>
+#include <memory.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/param.h>
+#include <netdb.h>
+#include <dlfcn.h>
+#include <arpa/inet.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/random.h>
+#include <sys/un.h>
+#include <sys/epoll.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/queue.h>
+#include <sys/select.h>
+#include <sys/sendfile.h>
+#include <sys/uio.h>
+#include <sys/wait.h>
+#include <sys/resource.h>
+#include <sys/timerfd.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <ifaddrs.h>
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef issetugid
+  return ((int*)(&issetugid))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the prototype gethostbyname_r exists for EVENT__HAVE_GETHOSTBYNAME_R_3_ARG failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3512f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3512f.dir/build.make CMakeFiles/cmTC_3512f.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3512f.dir/CheckPrototypeDefinition.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_3512f.dir/CheckPrototypeDefinition.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:66:[m[K [01;35m[Kwarning: [m[K‘[01m[Kstruct hostent_data[m[K’ declared inside parameter list will not be visible outside of this definition or declaration
+   14 | int gethostbyname_r(const char *name, struct hostent *hp, struct [01;35m[Khostent_data[m[K *hdata) {
+      |                                                                  [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:5:[m[K [01;31m[Kerror: [m[Kconflicting types for ‘[01m[Kgethostbyname_r[m[K’; have ‘[01m[Kint(const char *, struct hostent *, struct hostent_data *)[m[K’
+   14 | int [01;31m[Kgethostbyname_r[m[K(const char *name, struct hostent *hp, struct hostent_data *hdata) {
+      |     [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:1[m[K:
+[01m[K/usr/include/netdb.h:177:12:[m[K [01;36m[Knote: [m[Kprevious declaration of ‘[01m[Kgethostbyname_r[m[K’ with type ‘[01m[Kint(const char * restrict,  struct hostent * restrict,  char * restrict,  size_t,  struct hostent ** restrict,  int * restrict)[m[K’ {aka ‘[01m[Kint(const char * restrict,  struct hostent * restrict,  char * restrict,  long unsigned int,  struct hostent ** restrict,  int * restrict)[m[K’}
+  177 | extern int [01;36m[Kgethostbyname_r[m[K (const char *__restrict __name,
+      |            [01;36m[K^~~~~~~~~~~~~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_3512f.dir/build.make:78: CMakeFiles/cmTC_3512f.dir/CheckPrototypeDefinition.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_3512f/fast] Error 2
+
+
+
+#include <netdb.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef gethostbyname_r
+  cmakeRequireSymbol(0, &gethostbyname_r);
+#endif
+}
+
+int gethostbyname_r(const char *name, struct hostent *hp, struct hostent_data *hdata) {
+  return 0;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Determining if the prototype gethostbyname_r exists for EVENT__HAVE_GETHOSTBYNAME_R_5_ARG failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_232ae/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_232ae.dir/build.make CMakeFiles/cmTC_232ae.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_232ae.dir/CheckPrototypeDefinition.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_232ae.dir/CheckPrototypeDefinition.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:17:[m[K [01;31m[Kerror: [m[Kconflicting types for ‘[01m[Kgethostbyname_r[m[K’; have ‘[01m[Kstruct hostent *(const char *, struct hostent *, char *, size_t,  int *)[m[K’ {aka ‘[01m[Kstruct hostent *(const char *, struct hostent *, char *, long unsigned int,  int *)[m[K’}
+   14 | struct hostent *[01;31m[Kgethostbyname_r[m[K(const char *name, struct hostent *hp, char *buf, size_t buflen, int *herr) {
+      |                 [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:1[m[K:
+[01m[K/usr/include/netdb.h:177:12:[m[K [01;36m[Knote: [m[Kprevious declaration of ‘[01m[Kgethostbyname_r[m[K’ with type ‘[01m[Kint(const char * restrict,  struct hostent * restrict,  char * restrict,  size_t,  struct hostent ** restrict,  int * restrict)[m[K’ {aka ‘[01m[Kint(const char * restrict,  struct hostent * restrict,  char * restrict,  long unsigned int,  struct hostent ** restrict,  int * restrict)[m[K’}
+  177 | extern int [01;36m[Kgethostbyname_r[m[K (const char *__restrict __name,
+      |            [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:[m[K In function ‘[01m[Kgethostbyname_r[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:15:10:[m[K [01;31m[Kerror: [m[K‘[01m[KNULL[m[K’ undeclared (first use in this function)
+   15 |   return [01;31m[KNULL[m[K;
+      |          [01;31m[K^~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:2:1:[m[K [01;36m[Knote: [m[K‘[01m[KNULL[m[K’ is defined in header ‘[01m[K<stddef.h>[m[K’; did you forget to ‘[01m[K#include <stddef.h>[m[K’?
+    1 | #include <netdb.h>
+  +++ |+[32m[K#include <stddef.h>[m[K
+    2 | 
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:15:10:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+   15 |   return [01;36m[KNULL[m[K;
+      |          [01;36m[K^~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:16:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+   16 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+gmake[1]: *** [CMakeFiles/cmTC_232ae.dir/build.make:78: CMakeFiles/cmTC_232ae.dir/CheckPrototypeDefinition.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_232ae/fast] Error 2
+
+
+
+#include <netdb.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef gethostbyname_r
+  cmakeRequireSymbol(0, &gethostbyname_r);
+#endif
+}
+
+struct hostent *gethostbyname_r(const char *name, struct hostent *hp, char *buf, size_t buflen, int *herr) {
+  return NULL;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Performing C SOURCE FILE Test EVENT__HAVE_DECL_CTL_KERN failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-XkBTIp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9f296/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9f296.dir/build.make CMakeFiles/cmTC_9f296.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-XkBTIp'
+Building C object CMakeFiles/cmTC_9f296.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_DECL_CTL_KERN -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_9f296.dir/src.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-XkBTIp/src.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-XkBTIp/src.c:2:20:[m[K [01;31m[Kfatal error: [m[Ksys/sysctl.h: No such file or directory
+    2 |           #include [01;31m[K<sys/sysctl.h>[m[K
+      |                    [01;31m[K^~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_9f296.dir/build.make:78: CMakeFiles/cmTC_9f296.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-XkBTIp'
+gmake: *** [Makefile:127: cmTC_9f296/fast] Error 2
+
+
+Source file was:
+
+          #include <sys/sysctl.h>
+        int main() { (void)CTL_KERN; return 0; }
+
+Performing C SOURCE FILE Test EVENT__HAVE_DECL_KERN_ARND failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-KUHVTg
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_86803/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_86803.dir/build.make CMakeFiles/cmTC_86803.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-KUHVTg'
+Building C object CMakeFiles/cmTC_86803.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_DECL_KERN_ARND -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_86803.dir/src.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-KUHVTg/src.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-KUHVTg/src.c:2:20:[m[K [01;31m[Kfatal error: [m[Ksys/sysctl.h: No such file or directory
+    2 |           #include [01;31m[K<sys/sysctl.h>[m[K
+      |                    [01;31m[K^~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_86803.dir/build.make:78: CMakeFiles/cmTC_86803.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-KUHVTg'
+gmake: *** [Makefile:127: cmTC_86803/fast] Error 2
+
+
+Source file was:
+
+          #include <sys/sysctl.h>
+        int main() { (void)KERN_ARND; return 0; }
+
+Determining size of SSIZE_T failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WwMqWf
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0ccff/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0ccff.dir/build.make CMakeFiles/cmTC_0ccff.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WwMqWf'
+Building C object CMakeFiles/cmTC_0ccff.dir/EVENT__SIZEOF_SSIZE_T_UPPER.c.o
+/usr/bin/cc -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_0ccff.dir/EVENT__SIZEOF_SSIZE_T_UPPER.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WwMqWf/EVENT__SIZEOF_SSIZE_T_UPPER.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WwMqWf/EVENT__SIZEOF_SSIZE_T_UPPER.c:65:22:[m[K [01;31m[Kerror: [m[K‘[01m[KSSIZE_T[m[K’ undeclared here (not in a function)
+   65 | #define SIZE (sizeof([01;31m[KSSIZE_T[m[K))
+      |                      [01;31m[K^~~~~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WwMqWf/EVENT__SIZEOF_SSIZE_T_UPPER.c:67:12:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KSIZE[m[K’
+   67 |   ('0' + (([01;36m[KSIZE[m[K / 10000)%10)),
+      |            [01;36m[K^~~~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_0ccff.dir/build.make:78: CMakeFiles/cmTC_0ccff.dir/EVENT__SIZEOF_SSIZE_T_UPPER.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-WwMqWf'
+gmake: *** [Makefile:127: cmTC_0ccff/fast] Error 2
+
+
+EVENT__SIZEOF_SSIZE_T_UPPER.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+#include "fcntl.h"
+#include "inttypes.h"
+#include "memory.h"
+#include "signal.h"
+#include "stdarg.h"
+#include "stddef.h"
+#include "stdint.h"
+#include "stdlib.h"
+#include "string.h"
+#include "errno.h"
+#include "unistd.h"
+#include "time.h"
+#include "sys/types.h"
+#include "sys/stat.h"
+#include "sys/time.h"
+#include "sys/param.h"
+#include "netdb.h"
+#include "dlfcn.h"
+#include "arpa/inet.h"
+#include "poll.h"
+#include "sys/socket.h"
+#include "sys/random.h"
+#include "sys/un.h"
+#include "sys/epoll.h"
+#include "sys/eventfd.h"
+#include "sys/ioctl.h"
+#include "sys/mman.h"
+#include "sys/queue.h"
+#include "sys/select.h"
+#include "sys/sendfile.h"
+#include "sys/uio.h"
+#include "sys/wait.h"
+#include "sys/resource.h"
+#include "sys/timerfd.h"
+#include "netinet/in.h"
+#include "netinet/tcp.h"
+#include "ifaddrs.h"
+#include "stdio.h"
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(SSIZE_T))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing C SOURCE FILE Test EVENT__HAVE_STRUCT_SOCKADDR_IN6_SIN6_LEN failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b1i76V
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ffd77/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ffd77.dir/build.make CMakeFiles/cmTC_ffd77.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b1i76V'
+Building C object CMakeFiles/cmTC_ffd77.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_STRUCT_SOCKADDR_IN6_SIN6_LEN -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_ffd77.dir/src.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b1i76V/src.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b1i76V/src.c:6:5:[m[K [01;35m[Kwarning: [m[Kfunction declaration isn’t a prototype [[01;35m[K-Wstrict-prototypes[m[K]
+    6 | int [01;35m[Kmain[m[K()
+      |     [01;35m[K^~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b1i76V/src.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b1i76V/src.c:8:42:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct sockaddr_in6[m[K’ has no member named ‘[01m[Ksin6_len[m[K’
+    8 |   (void)sizeof(((struct sockaddr_in6 *)0)[01;31m[K->[m[Ksin6_len);
+      |                                          [01;31m[K^~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_ffd77.dir/build.make:78: CMakeFiles/cmTC_ffd77.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-b1i76V'
+gmake: *** [Makefile:127: cmTC_ffd77/fast] Error 2
+
+
+Source file was:
+
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
+int main()
+{
+  (void)sizeof(((struct sockaddr_in6 *)0)->sin6_len);
+  return 0;
+}
+
+
+Performing C SOURCE FILE Test EVENT__HAVE_STRUCT_SOCKADDR_IN_SIN_LEN failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7GuCT3
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6a41d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6a41d.dir/build.make CMakeFiles/cmTC_6a41d.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7GuCT3'
+Building C object CMakeFiles/cmTC_6a41d.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_STRUCT_SOCKADDR_IN_SIN_LEN -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_6a41d.dir/src.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7GuCT3/src.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7GuCT3/src.c:6:5:[m[K [01;35m[Kwarning: [m[Kfunction declaration isn’t a prototype [[01;35m[K-Wstrict-prototypes[m[K]
+    6 | int [01;35m[Kmain[m[K()
+      |     [01;35m[K^~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7GuCT3/src.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7GuCT3/src.c:8:42:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct sockaddr_in6[m[K’ has no member named ‘[01m[Ksin_len[m[K’
+    8 |   (void)sizeof(((struct sockaddr_in6 *)0)[01;31m[K->[m[Ksin_len);
+      |                                          [01;31m[K^~[m[K
+gmake[1]: *** [CMakeFiles/cmTC_6a41d.dir/build.make:78: CMakeFiles/cmTC_6a41d.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7GuCT3'
+gmake: *** [Makefile:127: cmTC_6a41d/fast] Error 2
+
+
+Source file was:
+
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
+int main()
+{
+  (void)sizeof(((struct sockaddr_in6 *)0)->sin_len);
+  return 0;
+}
+
+
+Performing C SOURCE FILE Test EVENT__HAVE_STRUCT_SOCKADDR_STORAGE___SS_FAMILY failed with the following output:
+Change Dir: /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bjJZzG
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a8f96/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a8f96.dir/build.make CMakeFiles/cmTC_a8f96.dir/build
+gmake[1]: Entering directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bjJZzG'
+Building C object CMakeFiles/cmTC_a8f96.dir/src.c.o
+/usr/bin/cc -DEVENT__HAVE_STRUCT_SOCKADDR_STORAGE___SS_FAMILY -D_GNU_SOURCE  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -Wall -Wextra -Wno-unused-parameter -Wstrict-aliasing -Wstrict-prototypes -fno-strict-aliasing -Wmissing-prototypes -Winit-self -Wmissing-field-initializers -Wdeclaration-after-statement -Waddress -Wnormalized=id -Woverride-init -Wlogical-op -Wwrite-strings  -fdiagnostics-color=always -o CMakeFiles/cmTC_a8f96.dir/src.c.o -c /home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bjJZzG/src.c
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bjJZzG/src.c:6:5:[m[K [01;35m[Kwarning: [m[Kfunction declaration isn’t a prototype [[01;35m[K-Wstrict-prototypes[m[K]
+    6 | int [01;35m[Kmain[m[K()
+      |     [01;35m[K^~~~[m[K
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bjJZzG/src.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[K/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bjJZzG/src.c:8:48:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct sockaddr_storage[m[K’ has no member named ‘[01m[K__ss_family[m[K’; did you mean ‘[01m[Kss_family[m[K’?
+    8 |   (void)sizeof(((struct sockaddr_storage *)0)->[01;31m[K__ss_family[m[K);
+      |                                                [01;31m[K^~~~~~~~~~~[m[K
+      |                                                [32m[Kss_family[m[K
+gmake[1]: *** [CMakeFiles/cmTC_a8f96.dir/build.make:78: CMakeFiles/cmTC_a8f96.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-bjJZzG'
+gmake: *** [Makefile:127: cmTC_a8f96/fast] Error 2
+
+
+Source file was:
+
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
+int main()
+{
+  (void)sizeof(((struct sockaddr_storage *)0)->__ss_family);
+  return 0;
+}
+
+

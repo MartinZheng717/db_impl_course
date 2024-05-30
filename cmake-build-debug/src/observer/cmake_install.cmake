@@ -66,3 +66,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/zhengzhiwei/db_impl_course/cmake-build-debug/lib/libobserver.a")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/cmake_install.cmake")
+  include("/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/cmake_install.cmake")
+
+endif()
+

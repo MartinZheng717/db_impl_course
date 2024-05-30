@@ -94,6 +94,9 @@ bin/path_test: unitest/CMakeFiles/path_test.dir/path_test.cpp.o
 bin/path_test: unitest/CMakeFiles/path_test.dir/build.make
 bin/path_test: lib/libobserver.a
 bin/path_test: lib/libcommon.so.1.0.0
+bin/path_test: libevent/lib/libevent.a
+bin/path_test: libevent/lib/libevent_core.a
+bin/path_test: lib/libjsoncpp.a
 bin/path_test: unitest/CMakeFiles/path_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zhengzhiwei/db_impl_course/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/path_test"
 	cd /home/zhengzhiwei/db_impl_course/cmake-build-debug/unitest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/path_test.dir/link.txt --verbose=$(VERBOSE)

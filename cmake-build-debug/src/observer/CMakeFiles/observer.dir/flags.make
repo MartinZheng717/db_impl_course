@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = -DLINUX -DUNIX
 
-C_INCLUDES = -I/home/zhengzhiwei/db_impl_course/src/observer/. -I/home/zhengzhiwei/db_impl_course/src/observer -I/home/zhengzhiwei/db_impl_course/src/observer/../../deps
+C_INCLUDES = -I/home/zhengzhiwei/db_impl_course/src/observer/. -I/home/zhengzhiwei/db_impl_course/src/observer -I/home/zhengzhiwei/db_impl_course/src/observer/../../deps -I/home/zhengzhiwei/db_impl_course/deps/libevent/include -I/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include -I/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/../../include -I/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/include/json
 
 C_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -g -fdiagnostics-color=always
 
 CXX_DEFINES = -DLINUX -DUNIX
 
-CXX_INCLUDES = -I/home/zhengzhiwei/db_impl_course/src/observer/. -I/home/zhengzhiwei/db_impl_course/src/observer -I/home/zhengzhiwei/db_impl_course/src/observer/../../deps
+CXX_INCLUDES = -I/home/zhengzhiwei/db_impl_course/src/observer/. -I/home/zhengzhiwei/db_impl_course/src/observer -I/home/zhengzhiwei/db_impl_course/src/observer/../../deps -I/home/zhengzhiwei/db_impl_course/deps/libevent/include -I/home/zhengzhiwei/db_impl_course/cmake-build-debug/libevent/include -I/home/zhengzhiwei/db_impl_course/deps/jsoncpp/src/lib_json/../../include -I/home/zhengzhiwei/db_impl_course/cmake-build-debug/jsoncpp/include/json
 
 CXX_FLAGS =  -Wall -DCMAKE_EXPORT_COMPILE_COMMANDS=1  -O2 -g  -g -fdiagnostics-color=always -std=gnu++14
 

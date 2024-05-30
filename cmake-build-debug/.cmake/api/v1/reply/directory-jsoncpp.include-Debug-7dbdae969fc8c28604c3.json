@@ -1,0 +1,52 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"deps/jsoncpp/include/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 2,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include/json",
+			"paths" : 
+			[
+				"deps/jsoncpp/include/json/allocator.h",
+				"deps/jsoncpp/include/json/assertions.h",
+				"deps/jsoncpp/include/json/config.h",
+				"deps/jsoncpp/include/json/forwards.h",
+				"deps/jsoncpp/include/json/json.h",
+				"deps/jsoncpp/include/json/json_features.h",
+				"deps/jsoncpp/include/json/reader.h",
+				"deps/jsoncpp/include/json/value.h",
+				"deps/jsoncpp/include/json/version.h",
+				"deps/jsoncpp/include/json/writer.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "jsoncpp/include",
+		"source" : "deps/jsoncpp/include"
+	}
+}

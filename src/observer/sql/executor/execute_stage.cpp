@@ -46,7 +46,7 @@ ExecuteStage::~ExecuteStage() {}
 
 //! Parse properties, instantiate a stage object
 Stage *ExecuteStage::make_stage(const std::string &tag) {
-  ExecuteStage *stage = new (std::nothrow) ExecuteStage(tag.c_str());
+  ExecuteStage *stage = new(std::nothrow) ExecuteStage(tag.c_str());
   if (stage == nullptr) {
     LOG_ERROR("new ExecuteStage failed");
     return nullptr;
@@ -113,9 +113,9 @@ void ExecuteStage::handle_request(common::StageEvent *event) {
   SessionEvent *session_event = exe_event->sql_event()->session_event();
   Query *sql = exe_event->sqls();
   const char *current_db =
-      session_event->get_client()->session->get_current_db().c_str();
+          session_event->get_client()->session->get_current_db().c_str();
 
-  CompletionCallback *cb = new (std::nothrow) CompletionCallback(this, nullptr);
+  CompletionCallback *cb = new(std::nothrow) CompletionCallback(this, nullptr);
   if (cb == nullptr) {
     LOG_ERROR("Failed to new callback for ExecutionPlanEvent");
     exe_event->done_immediate();
@@ -126,12 +126,13 @@ void ExecuteStage::handle_request(common::StageEvent *event) {
   switch (sql->flag) {
     case SCF_SELECT: {  // select
       RC rc =
-          do_select(current_db, sql, exe_event->sql_event()->session_event());
+              do_select(current_db, sql, exe_event->sql_event()->session_event());
       if (rc != RC::SUCCESS) {
         session_event->set_response("FAILURE\n");
       }
       exe_event->done_immediate();
-    } break;
+    }
+      break;
 
     case SCF_INSERT:
     case SCF_UPDATE:
@@ -143,7 +144,7 @@ void ExecuteStage::handle_request(common::StageEvent *event) {
     case SCF_CREATE_INDEX:
     case SCF_DROP_INDEX:
     case SCF_LOAD_DATA: {
-      StorageEvent *storage_event = new (std::nothrow) StorageEvent(exe_event);
+      StorageEvent *storage_event = new(std::nothrow) StorageEvent(exe_event);
       if (storage_event == nullptr) {
         LOG_ERROR("Failed to new StorageEvent");
         event->done_immediate();
@@ -151,50 +152,57 @@ void ExecuteStage::handle_request(common::StageEvent *event) {
       }
 
       default_storage_stage_->handle_event(storage_event);
-    } break;
+    }
+      break;
     case SCF_SYNC: {
       RC rc = DefaultHandler::get_default().sync();
       session_event->set_response(strrc(rc));
       exe_event->done_immediate();
-    } break;
+    }
+      break;
     case SCF_BEGIN: {
       session_event->get_client()->session->set_trx_multi_operation_mode(true);
       session_event->set_response(strrc(RC::SUCCESS));
       exe_event->done_immediate();
-    } break;
+    }
+      break;
     case SCF_COMMIT: {
       Trx *trx = session_event->get_client()->session->current_trx();
       RC rc = trx->commit();
       session_event->get_client()->session->set_trx_multi_operation_mode(false);
       session_event->set_response(strrc(rc));
       exe_event->done_immediate();
-    } break;
+    }
+      break;
     case SCF_ROLLBACK: {
       Trx *trx = session_event->get_client()->session->current_trx();
       RC rc = trx->rollback();
       session_event->get_client()->session->set_trx_multi_operation_mode(false);
       session_event->set_response(strrc(rc));
       exe_event->done_immediate();
-    } break;
+    }
+      break;
     case SCF_HELP: {
       const char *response =
-          "show tables;\n"
-          "desc `table name`;\n"
-          "create table `table name` (`column name` `column type`, ...);\n"
-          "create index `index name` on `table` (`column`);\n"
-          "insert into `table` values(`value1`,`value2`);\n"
-          "update `table` set column=value [where `column`=`value`];\n"
-          "delete from `table` [where `column`=`value`];\n"
-          "select [ * | `columns` ] from `table`;\n";
+              "show tables;\n"
+              "desc `table name`;\n"
+              "create table `table name` (`column name` `column type`, ...);\n"
+              "create index `index name` on `table` (`column`);\n"
+              "insert into `table` values(`value1`,`value2`);\n"
+              "update `table` set column=value [where `column`=`value`];\n"
+              "delete from `table` [where `column`=`value`];\n"
+              "select [ * | `columns` ] from `table`;\n";
       session_event->set_response(response);
       exe_event->done_immediate();
-    } break;
+    }
+      break;
     case SCF_EXIT: {
       // do nothing
       const char *response = "Unsupported\n";
       session_event->set_response(response);
       exe_event->done_immediate();
-    } break;
+    }
+      break;
     default: {
       exe_event->done_immediate();
       LOG_ERROR("Unsupported command=%d\n", sql->flag);
@@ -220,6 +228,20 @@ std::string agg_to_string(Aggregation agg) {
     //TODO AGG_MIN
     //TODO AGG_COUNT
     //TODO AGG_AVG
+    // do
+    case AGG_MAX:
+      res += "MAX";
+      break;
+    case AGG_MIN:
+      res += "MIN";
+      break;
+    case AGG_COUNT:
+      res += "COUNT";
+      break;
+    case AGG_AVG:
+      res += "AVG";
+      break;
+      //
   }
   res += "(";
   if (1 == agg.is_value) {
@@ -231,10 +253,31 @@ std::string agg_to_string(Aggregation agg) {
       //TODO INT
       //TODO FLOAT
       //TODO DATES
+      // do
+      case UNDEFINED:
+        break;
+      case CHARS:
+        break;
+      case INTS:
+        res += std::to_string(*(int *) val);
+        break;
+      case DATES:
+        res += "DATES";
+        break;
+      case FLOATS:
+        res += std::to_string(*(float *) val);
+        break;
+        //
     }
-  }
-  else{
+  } else {
     //TODO 如果有relation_name和field_name的话也要添加
+    // do
+    if (agg.attribute.relation_name != NULL) {
+      res += agg.attribute.relation_name;
+      res += ".";
+    }
+    res += agg.attribute.attribute_name;
+    //
   }
   res += ")";
   return res;
@@ -243,26 +286,137 @@ std::string agg_to_string(Aggregation agg) {
 void aggregation_exec(const Selects &selects, TupleSet *res_tuples) {
   if (selects.aggregation_num > 0) {
     TupleSchema agg_schema;
-    //TODO 设置schema
-    //TODO 依次添加字段值
+    // TODO 设置schema
+    // TODO 依次添加字段值
+    // do
+    for (size_t i = 0; i < selects.aggregation_num; i++) {
+      const Aggregation &agg = selects.aggregations[i];
+      int idx = -1;
+      auto &temp = res_tuples->get_schema();
+      auto &fields = res_tuples->get_schema().fields();
+      for (int i = 0; i < res_tuples->schema().fields().size(); i++) {
+        if (agg.attribute.attribute_name == NULL) continue; // 处理count(1)情况
+        if ((agg.attribute.relation_name == NULL ||
+             strcmp(agg.attribute.relation_name, fields[i].table_name()) == 0) &&
+            (strcmp(agg.attribute.attribute_name, fields[i].field_name()) == 0)) {
+          idx = i;
+          break;
+        }
+      }
+      if (idx == -1) {
+        agg_schema.add(INTS, "", agg_to_string(agg).c_str());
+      } else {
+        auto tupleField = res_tuples->get_schema().field(idx);
+        agg_schema.add(tupleField.type(), tupleField.table_name(), agg_to_string(agg).c_str());
+      }
+    }
+    //
     Tuple out;
     for (size_t i = 0; i < selects.aggregation_num; i++) {
       const Aggregation &agg = selects.aggregations[i];
       const std::vector<Tuple> &tuples = res_tuples->tuples();
+      // do : 查找 agg 操作的列号 idx
+      int idx = -1;
+      auto fields = res_tuples->get_schema().fields();
+      for (int i = 0; i < res_tuples->schema().fields().size(); i++) {
+        if (agg.attribute.attribute_name == NULL) continue; // 处理count(1)情况
+        if ((agg.attribute.relation_name == NULL ||
+             strcmp(agg.attribute.relation_name, fields[i].table_name()) == 0) &&
+            (strcmp(agg.attribute.attribute_name, fields[i].field_name()) == 0)) {
+          idx = i;
+          break;
+        }
+      }
+      AttrType attrType;
+      if (idx != -1) {
+        attrType = res_tuples->get_schema().field(idx).type();
+      }
+      //
       switch (agg.func_name) {
         case FuncName::AGG_MAX:
+          // do
+          switch (attrType) {
+            case INTS: {
+              int mx = -999999999;
+              for (auto &tuple: tuples) {
+                int val = ((IntValue *) tuple.get_pointer(idx).get())->get_value();
+                mx = std::max(mx, val);
+              }
+              out.add(mx);
+              break;
+            }
+            case FLOATS: {
+              float mx = -999999999;
+              for (auto &tuple: tuples) {
+                float val = ((FloatValue *) tuple.get_pointer(idx).get())->get_value();
+                float mx = std::max(mx, val);
+              }
+              out.add(mx);
+              break;
+            }
+          }
+          break;
+          //
         case FuncName::AGG_MIN: {
           //TODO 遍历所有元组，获取最值
           //TODO 增加这条记录
+          // do
+          switch (attrType) {
+            case INTS: {
+              int mn = 999999999;
+              for (auto &tuple: tuples) {
+                int val = ((IntValue *) tuple.get_pointer(idx).get())->get_value();
+                mn = std::min(mn, val);
+              }
+              out.add(mn);
+              break;
+            }
+            case FLOATS: {
+              float mn = 999999999;
+              for (auto &tuple: tuples) {
+                float val = ((FloatValue *) tuple.get_pointer(idx).get())->get_value();
+                mn = std::min(mn, val);
+              }
+              out.add(mn);
+              break;
+            }
+          }
+          break;
+          //
         }
         case FuncName::AGG_COUNT: {
           // 值为size的大小
-          //TODO 增加这条记录
+          // TODO 增加这条记录
+          // do
+          out.add((int) tuples.size());
+          break;
+          //
         }
         case FuncName::AGG_AVG: {
           //TODO 遍历所有元组，获取和
           float sum = 0;
+          // do
+          switch (attrType) {
+            case INTS: {
+              for (auto &tuple: tuples) {
+                int val = ((IntValue *) tuple.get_pointer(idx).get())->get_value();
+                sum += val;
+              }
+              break;
+            }
+            case FLOATS: {
+              for (auto &tuple: tuples) {
+                float val = ((FloatValue *) tuple.get_pointer(idx).get())->get_value();
+                sum += val;
+              }
+              break;
+            }
+          }
+          //
           //TODO 增加这条记录
+          // do
+          out.add(sum / tuples.size());
+          //
           break;
         }
       }
@@ -288,8 +442,8 @@ bool match_join_condition(const Tuple *res_tuple,
 
 // 将多段小元组合成一个大元组
 Tuple merge_tuples(
-    const std::vector<std::vector<Tuple>::const_iterator> temp_tuples,
-    std::vector<int> orders) {
+        const std::vector<std::vector<Tuple>::const_iterator> temp_tuples,
+        std::vector<int> orders) {
   std::vector<std::shared_ptr<TupleValue>> temp_res;
   Tuple res_tuple;
   //TODO 先把每个字段都放到对应的位置上(temp_res)
@@ -391,19 +545,21 @@ RC ExecuteStage::do_select(const char *db, const Query *sql,
     //TODO 元组的拼接需要实现笛卡尔积
     //TODO 将符合连接条件的元组添加到print_tables中
 
+    //TODO
+    aggregation_exec(selects, &print_tuples);
+    print_tuples.print(ss);
+  } else {
     //TODO 添加聚合算子
-      print_tuples.print(ss);
-    } else {
-    //TODO 添加聚合算子
+    aggregation_exec(selects, &tuple_sets.front());
     // 当前只查询一张表，直接返回结果即可
-      tuple_sets.front().print(ss);
-    }
-    for (SelectExeNode *&tmp_node: select_nodes) {
-      delete tmp_node;
-    }
-    session_event->set_response(ss.str());
-    end_trx_if_need(session, trx, true);
-    return rc;
+    tuple_sets.front().print(ss);
+  }
+  for (SelectExeNode *&tmp_node: select_nodes) {
+    delete tmp_node;
+  }
+  session_event->set_response(ss.str());
+  end_trx_if_need(session, trx, true);
+  return rc;
 }
 
 
@@ -441,7 +597,7 @@ RC create_selection_executor(Trx *trx, const Selects &selects, const char *db,
       continue;
     }
     table = DefaultHandler::get_default().find_table(
-        db, selects.attributes[i].relation_name);
+            db, selects.attributes[i].relation_name);
     if (nullptr == table) {
       LOG_WARN("No such table [%s] in db [%s]",
                selects.attributes[i].relation_name, db);
@@ -456,7 +612,7 @@ RC create_selection_executor(Trx *trx, const Selects &selects, const char *db,
         continue;
       }
       table = DefaultHandler::get_default().find_table(
-          db, selects.conditions[i].left_attr.relation_name);
+              db, selects.conditions[i].left_attr.relation_name);
       if (nullptr == table) {
         LOG_WARN("No such table [%s] in db [%s]",
                  selects.conditions[i].left_attr.relation_name, db);
@@ -468,7 +624,7 @@ RC create_selection_executor(Trx *trx, const Selects &selects, const char *db,
         continue;
       }
       table = DefaultHandler::get_default().find_table(
-          db, selects.conditions[i].right_attr.relation_name);
+              db, selects.conditions[i].right_attr.relation_name);
       if (nullptr == table) {
         LOG_WARN("No such table [%s] in db [%s]",
                  selects.conditions[i].right_attr.relation_name, db);
@@ -545,12 +701,12 @@ RC create_selection_executor(Trx *trx, const Selects &selects, const char *db,
          match_table(selects, condition.left_attr.relation_name, table_name) &&
          match_table(selects, condition.right_attr.relation_name,
                      table_name))  // 左右都是属性名，并且表名都符合
-    ) {
+            ) {
       DefaultConditionFilter *condition_filter = new DefaultConditionFilter();
       RC rc = condition_filter->init(*table, condition);
       if (rc != RC::SUCCESS) {
         delete condition_filter;
-        for (DefaultConditionFilter *&filter : condition_filters) {
+        for (DefaultConditionFilter *&filter: condition_filters) {
           delete filter;
         }
         return rc;
