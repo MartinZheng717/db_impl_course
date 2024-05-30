@@ -7,5 +7,7 @@ set(SOURCE_FILES structure.cpp cc_lock.cpp)
 
 add_executable(ccLock main.cpp ${SOURCE_FILES} ${SOURCES})
 
+add_definitions("-Wall -g")
+
 find_package(Threads REQUIRED)
 target_link_libraries(ccLock Threads::Threads)
