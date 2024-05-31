@@ -1,0 +1,4 @@
+C:\Windows\System32\wsl.exe --distribution Ubuntu-22.04 --exec /bin/bash -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /home/zhengzhiwei/db_impl_course && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S /home/zhengzhiwei/db_impl_course -B /home/zhengzhiwei/db_impl_course"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/zhengzhiwei/db_impl_course
