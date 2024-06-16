@@ -1,0 +1,15 @@
+[2024-6-16 23:15:21 pid:22731 tid:7f4208952200  INFO: init.cpp init 201]>>Output configuration 
+Begin dump configuration
+[]
+
+Finish dump configuration 
+
+[2024-6-16 23:15:21 pid:22731 tid:7f4208952200  INFO: init.cpp init_seda 63]>>(Re)Starting State: Pid: 22731 Time: Sun Jun 16 23:15:21 2024
+
+[2024-6-16 23:15:21 pid:22731 tid:7f4208952200  INFO: init.cpp init_seda 64]>>The process Name is observer
+[2024-6-16 23:15:21 pid:22731 tid:7f4208952200  INFO: seda_config.cpp init_event_history 209]>>Successfully init_event_history, EventHistory:0, MaxEventHops:100
+[2024-6-16 23:15:21 pid:22731 tid:7f4208952200  ERROR: seda_config.cpp init_thread_pool 225]>>Configuration hasn't set ThreadPools
+[2024-6-16 23:15:21 pid:22731 tid:7f4208952200  ERROR: seda_config.cpp instantiate 420]>>Failed to init thread pool
+
+[2024-6-16 23:15:21 pid:22731 tid:7f4208952200  ERROR: init.cpp init_seda 69]>>SedaConfig: unable to initialize seda stages
+[2024-6-16 23:15:21 pid:22731 tid:7f4208952200  ERROR: init.cpp init 209]>>Failed to init seda configuration!
