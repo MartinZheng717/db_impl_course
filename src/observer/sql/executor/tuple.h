@@ -25,153 +25,160 @@ class Table;
 
 class Tuple {
 public:
-  Tuple() = default;
+    Tuple() = default;
 
-  Tuple(const Tuple &other);
+    Tuple(const Tuple &other);
 
-  ~Tuple();
+    ~Tuple();
 
-  Tuple(Tuple &&other) noexcept;
-  Tuple &operator=(Tuple &&other) noexcept;
+    Tuple(Tuple &&other) noexcept;
+    Tuple &operator=(Tuple &&other) noexcept;
 
-  void add(TupleValue *value);
-  void add(const std::shared_ptr<TupleValue> &other);
-  void add(int value);
-  void add(float value);
-  void add(const char *s, int len);
+    void add(TupleValue *value);
+    void add(const std::shared_ptr<TupleValue> &other);
+    void add(int value);
+    void add(float value);
+    void add(const char *s, int len);
 
-  const std::vector<std::shared_ptr<TupleValue>> &values() const
-  {
-    return values_;
-  }
+    const std::vector<std::shared_ptr<TupleValue>> &values() const
+    {
+      return values_;
+    }
 
-  int size() const
-  {
-    return values_.size();
-  }
+    int size() const
+    {
+      return values_.size();
+    }
 
-  const TupleValue &get(int index) const
-  {
-    return *values_[index];
-  }
+    const TupleValue &get(int index) const
+    {
+      return *values_[index];
+    }
 
-  const std::shared_ptr<TupleValue> &get_pointer(int index) const
-  {
-    return values_[index];
-  }
+    const std::shared_ptr<TupleValue> &get_pointer(int index) const
+    {
+      return values_[index];
+    }
 
 private:
-  std::vector<std::shared_ptr<TupleValue>> values_;
+    std::vector<std::shared_ptr<TupleValue>> values_;
 };
 
 class TupleField {
 public:
-  TupleField(AttrType type, const char *table_name, const char *field_name)
-      : type_(type), table_name_(table_name), field_name_(field_name)
-  {}
+    TupleField(AttrType type, const char *table_name, const char *field_name)
+            : type_(type), table_name_(table_name), field_name_(field_name)
+    {}
 
-  AttrType type() const
-  {
-    return type_;
-  }
+    AttrType type() const
+    {
+      return type_;
+    }
 
-  const char *table_name() const
-  {
-    return table_name_.c_str();
-  }
-  const char *field_name() const
-  {
-    return field_name_.c_str();
-  }
+    const char *table_name() const
+    {
+      return table_name_.c_str();
+    }
+    const char *field_name() const
+    {
+      return field_name_.c_str();
+    }
 
-  std::string to_string() const;
+    std::string to_string() const;
 
 private:
-  AttrType type_;
-  std::string table_name_;
-  std::string field_name_;
+    AttrType type_;
+    std::string table_name_;
+    std::string field_name_;
 };
 
 class TupleSchema {
 public:
-  TupleSchema() = default;
-  ~TupleSchema() = default;
+    TupleSchema() = default;
+    ~TupleSchema() = default;
 
-  void add(AttrType type, const char *table_name, const char *field_name);
-  void add_if_not_exists(AttrType type, const char *table_name, const char *field_name);
-  // void merge(const TupleSchema &other);
-  void append(const TupleSchema &other);
+    void add(AttrType type, const char *table_name, const char *field_name);
+    void add(const TupleField &otherfield);
 
-  const std::vector<TupleField> &fields() const
-  {
-    return fields_;
-  }
+    void add_if_not_exists(AttrType type, const char *table_name, const char *field_name);
+    // void merge(const TupleSchema &other);
+    void append(const TupleSchema &other);
 
-  const TupleField &field(int index) const
-  {
-    return fields_[index];
-  }
+    const std::vector<TupleField> &fields() const
+    {
+      return fields_;
+    }
 
-  int index_of_field(const char *table_name, const char *field_name) const;
-  void clear()
-  {
-    fields_.clear();
-  }
+    const TupleField &field(int index) const
+    {
+      return fields_[index];
+    }
 
-  void print(std::ostream &os) const;
+    int index_of_field(const char *table_name, const char *field_name) const;
+    void clear()
+    {
+      fields_.clear();
+    }
+
+    void print(std::ostream &os) const;
 
 public:
-  static void from_table(const Table *table, TupleSchema &schema);
+    static void from_table(const Table *table, TupleSchema &schema);
 
 private:
-  std::vector<TupleField> fields_;
+    std::vector<TupleField> fields_;
 };
 
 class TupleSet {
 public:
-  TupleSet() = default;
-  TupleSet(TupleSet &&other);
-  explicit TupleSet(const TupleSchema &schema) : schema_(schema)
-  {}
-  TupleSet &operator=(TupleSet &&other);
+    TupleSet() = default;
+    TupleSet(TupleSet &&other);
+    explicit TupleSet(const TupleSchema &schema) : schema_(schema)
+    {}
+    TupleSet &operator=(TupleSet &&other);
 
-  ~TupleSet() = default;
+    ~TupleSet() = default;
 
-  void set_schema(const TupleSchema &schema);
+    void set_schema(const TupleSchema &schema);
 
-  const TupleSchema &get_schema() const;
+    const TupleSchema &get_schema() const;
 
-  void add(Tuple &&tuple);
+    void add(Tuple &&tuple);
 
-  void clear();
+    void clear();
 
-  bool is_empty() const;
-  int size() const;
-  const Tuple &get(int index) const;
-  const std::vector<Tuple> &tuples() const;
+    bool is_empty() const;
+    int size() const;
+    const Tuple &get(int index) const;
+    const std::vector<Tuple> &tuples() const;
 
-  void print(std::ostream &os) const;
+    void print(std::ostream &os) const;
+
+    //定义一个交换元组的方法
+    void swap_tuple(int i, int j){
+      std::swap(tuples_[i],tuples_[j]);
+    }
 
 public:
-  const TupleSchema &schema() const
-  {
-    return schema_;
-  }
+    const TupleSchema &schema() const
+    {
+      return schema_;
+    }
 
 private:
-  std::vector<Tuple> tuples_;
-  TupleSchema schema_;
+    std::vector<Tuple> tuples_;
+    TupleSchema schema_;
 };
 
 class TupleRecordConverter {
 public:
-  TupleRecordConverter(Table *table, TupleSet &tuple_set);
+    TupleRecordConverter(Table *table, TupleSet &tuple_set);
 
-  void add_record(const char *record);
+    void add_record(const char *record);
 
 private:
-  Table *table_;
-  TupleSet &tuple_set_;
+    Table *table_;
+    TupleSet &tuple_set_;
 };
 
 #endif  //__OBSERVER_SQL_EXECUTOR_TUPLE_H_
