@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/cc_occ.dir/main.cpp.o CMakeFiles/cc_occ.dir/cc_occ.cpp.o CMakeFiles/cc_occ.dir/data_occ.cpp.o -o cc_occ 

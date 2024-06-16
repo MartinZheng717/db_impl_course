@@ -1,3 +1,0 @@
-/home/zhengzhiwei/db_impl_course/CMakeFiles/cc_occ.dir
-/home/zhengzhiwei/db_impl_course/CMakeFiles/edit_cache.dir
-/home/zhengzhiwei/db_impl_course/CMakeFiles/rebuild_cache.dir
